@@ -1,199 +1,74 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Macro Calculator</title>
-    <link href="css/style.css" rel="stylesheet" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Macro</title>
+    <link rel="stylesheet" href="style.css">
     <style>
-      /* 🎨 Warna diseragamkan */
-      :root {
-        --color-primary: #2d8b57; /* Hijau utama */
-        --color-secondary: #3cb371; /* Hijau muda */
-        --color-background: #f0fff0; /* Latar belakang lembut */
-        --color-text-dark: #333333;
-        --color-text-light: #ffffff;
-        --color-grey-bg: #f4f4f4;
-        --color-success: #3cb371;
-        --color-warning: #e67e22;
-      }
-
-      /* 🌍 Global Styling */
-      body {
-        font-family: "Poppins", sans-serif;
-        background-color: var(--color-background);
-        color: var(--color-text-dark);
-        margin: 0;
-        padding: 0;
-      }
-
-      .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 30px 20px;
-      }
-
-      h2 {
-        color: var(--color-primary);
-        margin-bottom: 20px;
-        font-size: 2rem;
-        font-weight: 700;
-      }
-
-      h3 {
-        color: var(--color-text-dark);
-        margin-top: 30px;
-        margin-bottom: 15px;
-        font-size: 1.5rem;
-        font-weight: 600;
-      }
-
-      a {
-        text-decoration: none;
-        color: var(--color-primary);
-      }
-
-      /* 🧭 Navbar */
-      .navbar {
-        background: var(--color-primary);
-        color: var(--color-text-light);
-        padding: 0.8rem 1.5rem;
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      }
-
-      .nav-container {
-        max-width: 1200px;
-        margin: auto;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-
-      .nav-logo a {
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: var(--color-text-light);
-        letter-spacing: 1px;
-      }
-
-      .nav-links {
-        display: flex;
-        gap: 1.2rem;
-        transition: all 0.3s ease;
-        overflow-x: scroll;
-      }
-
-      .nav-links a {
-        color: white;
-        font-weight: 600;
-        text-decoration: none;
-        padding: 0.5rem 0.8rem;
-        border-radius: 0.5rem;
-        transition: all 0.3s ease;
-      }
-
-      .nav-links a:hover {
-        background-color: rgba(255, 255, 255, 0.2);
-        transform: translateY(-2px);
-      }
-
-      .nav-toggle {
-        display: none;
-        max-width: 8rem;
-        font-size: 1.5rem;
-        background: none;
-        border: none;
-        color: white;
-        cursor: pointer;
-        transition: transform 0.3s ease;
-      }
-
-      .nav-toggle:hover {
-        transform: scale(1.1);
-      }
-      .container {
-        background-color: white;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        margin: 0 auto;
-        max-width: 1200px;
-        border-radius: 8px;
-      }
-
-      table {
-        padding: 1rem;
-        border-radius: 4px;
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-        width: 600px;
-        margin: 0 auto;
-        text-align: left;
-        table-layout: fixed;
-        border: 1px solid rgba(0, 0, 0, 0.1);
-      }
-
-      @media only screen and (max-width: 700px) {
         table {
-          
-          width: 100%;
+            text-align: left;
+            width: max-content;
+            align-self: center;
         }
-      }
+
+        th, td {
+            padding: 0.5rem;
+        }
+        
+        .container {
+            text-align: center;
+        }
+
+        table.container {
+            width: fit-content;
+            margin-bottom: 2rem;
+        }
+
     </style>
-  </head>
-  <body>
-    <header class="navbar">
-      <div class="nav-container">
-        <div class="nav-logo">
-          <a href="index.html">Special Health</a>
-        </div>
-
-        <nav class="nav-links" id="navMenu">
-          <a href="index.html">Beranda</a>
-          <a href="monitoring_tidur.html">Monitoring Tidur</a>
-          <a href="macro-kalkulator.html">Kalkulator Gizi</a>
-          <a href="BMI.html">BMI</a>
-          <a href="monitoring_minum.html">Monitoring Air Minum</a>
+</head>
+<body>
+    <header class="green">
+        <nav>
+            <h1>
+                <a href="index.html">Special Health</a>
+            </h1>
+            <a href="monitoring_tidur.html">Monitoring Tidur</a>
+            <a href="macro-kalkulator.html">Kalkulator Gizi</a>
+            <a href="BMI.html">BMI</a>
+            <a href="monitoring_minum.html">Monitoring Air Minum</a>
         </nav>
-
-        <button class="nav-toggle" id="navToggle" aria-label="Menu">
-          &#9776;
-        </button>
-      </div>
     </header>
-    <main style="margin-top: 4rem">
-      <div class="container">
-        <h2 style="text-align: center">Kalkulator Macro</h2>
-        <p style="text-align: center">
-          Rekomendasi makro dan kalori harian berdasarkan
-          <a href="BMI.html">BMI</a> mu
-        </p>
-        <table>
-          <tr>
-            <th>Karbohidrat</th>
-            <th>Protein</th>
-            <th>Lemak</th>
-          </tr>
-          <tr>
-            <td>331 g</td>
-            <td>91 g</td>
-            <td>80 g</td>
-          </tr>
-          <tr>
-            <td>54.9%</td>
-            <td>15.1%</td>
-            <td>30.0%</td>
-          </tr>
-        </table>
-        <h3 style="text-align: center">2411 Kalori per hari</h3>
-      </div>
+    <main class="center">
+        <div class="container">
+            <h2 class="heading">Kalkulator Macro</h2>
+            <p>Rekomendasi makro dan kalori harian berdasarkan <a href="BMI.html">BMI</a> mu</p>
+
+            <table class="container">
+                <tr>
+                    <th>Karbohidrat</th>
+                    <th>Protein</th>
+                    <th>Lemak</th>
+                </tr>
+                <tr>
+                    <td>331 g</td>
+                    <td>91 g</td>
+                    <td>80 g</td>
+                </tr>
+                <tr>
+                    <td>54.9%</td>
+                    <td>15.1%</td>
+                    <td>30.8%</td>
+                </tr>
+            </table>
+
+            <h3>2411 Kalori per hari</h3>
+        </div>
     </main>
     <footer>
-      <div class="container">
         <p>
-          &copy; 2025 Special Helath. Dibuat untuk gaya hidup yang lebih sehat.
+            &copy; 2025 Special Helath. Dibuat untuk gaya hidup yang lebih sehat.
         </p>
-      </div>
     </footer>
-  </body>
+</body>
 </html>
