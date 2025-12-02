@@ -255,4 +255,35 @@ th {
     padding-left: 1rem;
     padding-right: 1rem;
   }
+
+  html {
+    font-size: 12px;
+  }
+
+  svg {
+    height: 48px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  svg {
+    height: 32px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .hero {
+    text-align: center;
+    padding: 1rem;
+  }
+
+  #artikel .card > img {
+    height: auto;
+    width: 100%;
+  }
+
+  footer {
+    font-size: x-small;
+  }
 }
