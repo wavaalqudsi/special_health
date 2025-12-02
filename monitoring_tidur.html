@@ -1,464 +1,56 @@
-<!doctype html>
-<html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Monitoring Tidur dengan Riwayat</title>
-    <style>
-      /* 🎨 Warna diseragamkan */
-      :root {
-        --color-primary: #2d8b57; /* Hijau utama */
-        --color-secondary: #3cb371; /* Hijau muda */
-        --color-background: #f0fff0; /* Latar belakang lembut */
-        --color-text-dark: #333333;
-        --color-text-light: #ffffff;
-        --color-grey-bg: #f4f4f4;
-        --color-success: #3cb371;
-        --color-warning: #e67e22;
-      }
-
-      /* 🌍 Global Styling */
-      body {
-        font-family: "Poppins", sans-serif;
-        background-color: var(--color-background);
-        color: var(--color-text-dark);
-        margin: 0;
-        padding: 0;
-      }
-
-      .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 30px 20px;
-      }
-
-      h2 {
-        color: var(--color-primary);
-        margin-bottom: 20px;
-        font-size: 2rem;
-        font-weight: 700;
-      }
-
-      h3 {
-        color: var(--color-text-dark);
-        margin-top: 30px;
-        margin-bottom: 15px;
-        font-size: 1.5rem;
-        font-weight: 600;
-      }
-
-      a {
-        text-decoration: none;
-        color: var(--color-primary);
-      }
-
-      /* 🧭 Navbar */
-      .navbar {
-        background: var(--color-primary);
-        color: var(--color-text-light);
-        padding: 0.8rem 1.5rem;
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      }
-
-      .nav-container {
-        max-width: 1200px;
-        margin: auto;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-
-      .nav-logo a {
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: var(--color-text-light);
-        letter-spacing: 1px;
-      }
-
-      .nav-links {
-        display: flex;
-        gap: 1.2rem;
-        transition: all 0.3s ease;
-      }
-
-      .nav-links a {
-        color: white;
-        font-weight: 600;
-        text-decoration: none;
-        padding: 0.5rem 0.8rem;
-        border-radius: 0.5rem;
-        transition: all 0.3s ease;
-      }
-
-      .nav-links a:hover {
-        background-color: rgba(255, 255, 255, 0.2);
-        transform: translateY(-2px);
-      }
-
-      .nav-toggle {
-        display: none;
-        max-width: 8rem;
-        font-size: 1.5rem;
-        background: none;
-        border: none;
-        color: white;
-        cursor: pointer;
-        transition: transform 0.3s ease;
-      }
-
-      .nav-toggle:hover {
-        transform: scale(1.1);
-      }
-
-      /* 📱 Responsif Navbar */
-      @media (max-width: 768px) {
-        .nav-links {
-          display: none;
-          flex-direction: column;
-          position: absolute;
-          top: 60px;
-          right: 1rem;
-          width: 220px;
-          background-color: var(--color-primary);
-          padding: 1rem;
-          border-radius: 10px;
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-          opacity: 0;
-          transform: translateY(-20px);
-        }
-
-        .nav-links.show {
-          display: flex;
-          opacity: 1;
-          transform: translateY(0);
-          transition: all 0.4s ease;
-        }
-
-        .nav-toggle {
-          display: block;
-        }
-      }
-
-      /* 🧾 Card Utama */
-      .card {
-        background: white;
-        border-radius: 15px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        padding: 30px;
-        text-align: center;
-        margin-top: 30px;
-        transition:
-          transform 0.3s ease,
-          box-shadow 0.3s ease;
-      }
-
-      .card:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-      }
-
-      /* Form Input */
-      .input-group {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 15px;
-        gap: 10px;
-        flex-wrap: wrap;
-      }
-
-      label {
-        width: 120px;
-        text-align: left;
-        font-weight: 500;
-      }
-
-      input[type="time"] {
-        padding: 10px 12px;
-        border-radius: 8px;
-        border: 2px solid var(--color-secondary);
-        flex-grow: 1;
-        max-width: 180px;
-        font-size: 1rem;
-        transition: border-color 0.3s;
-      }
-
-      input[type="time"]:focus {
-        outline: none;
-        border-color: var(--color-primary);
-      }
-
-      button {
-        width: 100%;
-        padding: 12px;
-        margin: 20px 0;
-        border: none;
-        border-radius: 10px;
-        background-color: var(--color-primary);
-        color: white;
-        font-size: 1.1rem;
-        font-weight: bold;
-        cursor: pointer;
-        box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
-        transition:
-          background-color 0.3s,
-          transform 0.2s;
-      }
-
-      button:hover {
-        background-color: var(--color-secondary);
-        transform: translateY(-2px);
-      }
-
-      /* 📊 Tabel */
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 20px;
-        font-size: 1rem;
-        border-radius: 10px;
-        overflow: hidden;
-      }
-
-      th,
-      td {
-        padding: 14px;
-        text-align: center;
-      }
-
-      th {
-        background-color: var(--color-primary);
-        color: white;
-      }
-
-      tr:nth-child(even) {
-        background-color: var(--color-grey-bg);
-      }
-
-      /* 📰 Artikel */
-      .articles {
-        background-color: white;
-        text-align: center;
-        margin-top: 50px;
-        padding: 40px 20px;
-        border-radius: 15px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-      }
-
-      .article-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 20px;
-      }
-
-      .article-card {
-        border-radius: 10px;
-        overflow: hidden;
-        background-color: var(--color-background);
-        transition:
-          transform 0.3s ease,
-          box-shadow 0.3s ease;
-      }
-
-      .article-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-      }
-
-      .article-card img {
-        width: 100%;
-        height: 180px;
-        object-fit: cover;
-      }
-
-      .article-content {
-        padding: 15px;
-        text-align: left;
-      }
-
-      .article-content h3 {
-        margin: 0 0 10px;
-        color: var(--color-primary);
-      }
-
-      .article-content p {
-        color: #555;
-        font-size: 0.95rem;
-      }
-
-      .article-content a {
-        display: inline-block;
-        margin-top: 10px;
-        font-weight: bold;
-        color: var(--color-primary);
-      }
-
-      /* 🦶 Footer */
-      footer {
-        background-color: var(--color-primary);
-        color: white;
-        text-align: center;
-        padding: 20px 0;
-        margin-top: 50px;
-      }
-
-      footer p {
-        margin: 0;
-        font-size: 0.95rem;
-      }
-    </style>
-  </head>
-
-  <body>
-    <header class="navbar">
-      <div class="nav-container">
-        <div class="nav-logo">
-          <a href="index.html">Special Health</a>
-        </div>
-
-        <nav class="nav-links" id="navMenu">
-          <a href="index.html">Beranda</a>
-          <a href="monitoring_tidur.html">Monitoring Tidur</a>
-          <a href="macro-kalkulator.html">Kalkulator Gizi</a>
-          <a href="BMI.html">BMI</a>
-          <a href="monitoring_minum.html">Monitoring Air Minum</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitoring tidur</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="green">
+        <nav>
+            <h1>
+                <a href="index.html">Special Health</a>
+            </h1>
+            <a href="monitoring_tidur.html">Monitoring Tidur</a>
+            <a href="macro-kalkulator.html">Kalkulator Gizi</a>
+            <a href="BMI.html">BMI</a>
+            <a href="monitoring_minum.html">Monitoring Air Minum</a>
         </nav>
-
-        <button class="nav-toggle" id="navToggle" aria-label="Menu">
-          &#9776;
-        </button>
-      </div>
     </header>
+    <main class="center">
+        <div class="container">
+            <h2 class="heading" style="font-size: 2rem;">Monitoring Tidur</h2>
+            <fieldset>
+                <label for="tidur">Jam Tidur:</label>
+                <input type="time" name="tidur" id="tidur">
+            </fieldset>
 
-    <div class="container">
-      <div class="card">
-        <h2>Monitoring Tidur</h2>
+            <fieldset>
+                <label for="bangun">Jam Bangun:</label>
+                <input type="time" name="bangun" id="bangun">
+            </fieldset>
 
-        <div class="input-group">
-          <label for="tidur">Jam Tidur:</label>
-          <input type="time" id="tidur" />
-        </div>
-
-        <div class="input-group">
-          <label for="bangun">Jam Bangun:</label>
-          <input type="time" id="bangun" />
-        </div>
-
-        <button onclick="simpanData()">Simpan Data Tidur</button>
-
-        <h3>Riwayat Tidur</h3>
-        <table id="tabelRiwayat">
-          <thead>
-            <tr>
-              <th>Tanggal</th>
-              <th>Jam Tidur</th>
-              <th>Jam Bangun</th>
-              <th>Durasi (jam)</th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
-      </div>
-    </div>
-
-    <section id="artikel" class="articles">
-      <div class="container">
-        <h2>Artikel Kesehatan Terbaru</h2>
-        <div class="article-grid">
-          <article class="article-card">
-            <img
-              src="https://tribratanews.polri.go.id/web/image/blog.post/56550/image"
-              alt="Gambar artikel 1"
-            />
-            <div class="article-content">
-              <h3>Manfaat tidur yang cukup</h3>
-              <p>
-                Tidur yang cukup sangat penting untuk kesehatan fisik dan
-                mental...
-              </p>
-              <a href="#">Baca Selengkapnya →</a>
+            <input type="submit" value="Simpan data tidur" class="btn bg-green btn-fit">
+            <div>
+                <h3 class="heading-black" style="margin-top: 2rem; margin-bottom: 1rem;">Riwayat Tidur</h3>
+                <table>
+                    <thead class="bg-green">
+                        <tr>
+                            <th>Tanggal</th>
+                            <th>Jam Tidur</th>
+                            <th>Jam Bangun</th>
+                            <th>Durasi (jam)</th>
+                        </tr>
+                    </thead>
+                </table>
             </div>
-          </article>
-          <article class="article-card">
-            <img
-              src="https://d1bpj0tv6vfxyp.cloudfront.net/articles/fb1c2fb7-d5be-4a19-ae85-37b5e8f6a15d_article_image_url.webp"
-              alt="Gambar artikel 2"
-            />
-            <div class="article-content">
-              <h3>Waktu tidur yang ideal</h3>
-              <p>Waktu tidur yang ideal bervariasi untuk setiap orang...</p>
-              <a href="#">Baca Selengkapnya →</a>
-            </div>
-          </article>
-          <article class="article-card">
-            <img
-              src="https://d1bpj0tv6vfxyp.cloudfront.net/articles/333342_25-11-2020_11-49-50.jpeg"
-              alt="Gambar artikel 3"
-            />
-            <div class="article-content">
-              <h3>Tips tidak begadang</h3>
-              <p>
-                Untuk menghindari begadang, cobalah rutinitas tidur yang
-                konsisten...
-              </p>
-              <a href="#">Baca Selengkapnya →</a>
-            </div>
-          </article>
         </div>
-      </div>
-    </section>
-
+    </main>
     <footer>
-      <p>
-        &copy; 2025 Special Health. Dibuat untuk gaya hidup yang lebih sehat.
-      </p>
+        <p>
+            © 2025 Special Health. Dibuat untuk gaya hidup yang lebih sehat.
+        </p>
     </footer>
-
-    <script>
-      const navToggle = document.getElementById("navToggle");
-      const navMenu = document.getElementById("navMenu");
-
-      navToggle.addEventListener("click", () => {
-        navMenu.classList.toggle("show");
-      });
-
-      function simpanData() {
-        const jamTidur = document.getElementById("tidur").value;
-        const jamBangun = document.getElementById("bangun").value;
-
-        if (!jamTidur || !jamBangun) {
-          alert("Mohon isi jam tidur dan bangun!");
-          return;
-        }
-
-        const t1 = new Date("2000-01-01 " + jamTidur);
-        const t2 = new Date("2000-01-01 " + jamBangun);
-        if (t2 <= t1) t2.setDate(t2.getDate() + 1);
-
-        const durasiJam = (t2 - t1) / (1000 * 60 * 60);
-        const tanggal = new Date().toLocaleDateString("id-ID", {
-          day: "2-digit",
-          month: "2-digit",
-          year: "numeric",
-        });
-
-        const tabelBody = document.querySelector("#tabelRiwayat tbody");
-        const row = tabelBody.insertRow(0);
-        row.innerHTML = `
-          <td>${tanggal}</td>
-          <td>${jamTidur}</td>
-          <td>${jamBangun}</td>
-          <td style="font-weight: bold; color: ${
-            durasiJam >= 7 ? "var(--color-success)" : "var(--color-warning)"
-          };">${durasiJam.toFixed(1)}</td>
-        `;
-
-        document.getElementById("tidur").value = "";
-        document.getElementById("bangun").value = "";
-      }
-    </script>
-  </body>
+</body>
 </html>
