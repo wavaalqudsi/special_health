@@ -7,16 +7,17 @@
     <style>
       /* ====== ROOT COLORS ====== */
       :root {
+        --primary-green: #2d8b57;
+        --secondary-green: #3cb371;
+        --light-green-bg: #f0fff0;
+        --dark-text: #333;
+        --light-text: #ffffff;
+        --grey-bg: #f4f4f4;
+        --color-background: #f0fff0;
         --color-primary: #2d8b57;
         --color-secondary: #3cb371;
-        --color-accent: #f1c40f;
-        --color-danger: #e74c3c;
-        --color-info: #4b9cd3;
-        --color-bg: #f0fff0;
-        --color-text: #333;
-        --color-light: #ffffff;
-        --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.15);
         --radius-lg: 16px;
+        --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.15);
         --transition-fast: all 0.3s ease;
       }
 
@@ -24,25 +25,16 @@
       body {
         margin: 0;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        background: linear-gradient(
-            rgba(255, 255, 255, 0.8),
-            rgba(200, 200, 200, 0.4)
-          ),
+        background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(180, 180, 180, 0.5)),
           url("img/BMI.jpg") no-repeat center center/cover;
-        color: var(--color-text);
+        color: var(--dark-text);
         min-height: 100vh;
         display: flex;
         flex-direction: column;
       }
 
-      h1,
-      h2,
-      h3 {
-        text-align: center;
-      }
-
       h1 {
-        color: var(--color-secondary);
+        color: var(--secondary-green);
         margin-bottom: 5px;
         font-size: 2rem;
         font-weight: 800;
@@ -63,7 +55,7 @@
       /* ====== NAVBAR ====== */
       .navbar {
         background: var(--color-primary);
-        color: var(--color-light);
+        color: white;
         padding: 0.8rem 1.5rem;
         box-shadow: var(--shadow-md);
         position: sticky;
@@ -72,7 +64,7 @@
       }
 
       .nav-container {
-        max-width: 1200px;
+        max-width: 1400px;
         margin: auto;
         display: flex;
         align-items: center;
@@ -106,46 +98,6 @@
         transform: translateY(-2px);
       }
 
-      /* ====== HAMBURGER ====== */
-      .hamburger {
-        display: none;
-        flex-direction: column;
-        cursor: pointer;
-        gap: 4px;
-      }
-
-      .hamburger span {
-        width: 25px;
-        height: 3px;
-        background-color: white;
-        border-radius: 2px;
-        transition: var(--transition-fast);
-      }
-
-      .nav-links.active {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        right: 15px;
-        background: var(--color-primary);
-        padding: 1rem;
-        border-radius: 10px;
-        box-shadow: var(--shadow-md);
-        animation: fadeIn 0.3s ease;
-      }
-
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(-10px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
       /* ====== MAIN CONTENT ====== */
       main {
         flex: 1;
@@ -166,12 +118,13 @@
 
       .card {
         flex: 1;
-        min-width: 320px;
+        min-width: 340px;
         max-width: 500px;
         padding: 25px;
         border-radius: var(--radius-lg);
         background: #ffffffcc;
         box-shadow: var(--shadow-md);
+        text-align: left;
         transition: var(--transition-fast);
       }
 
@@ -191,7 +144,7 @@
         padding: 10px;
         margin-top: 8px;
         border-radius: 10px;
-        border: 2px solid var(--color-secondary);
+        border: 2px solid var(--secondary-green);
         font-size: 1rem;
         transition: var(--transition-fast);
       }
@@ -204,56 +157,21 @@
 
       button {
         width: 100%;
-        margin-top: 25px;
-        padding: 12px 15px;
-        background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-        color: white;
-        border: none;
-        border-radius: 10px;
-        cursor: pointer;
-        font-size: 1.1rem;
-        font-weight: bold;
-        transition: var(--transition-fast);
-      }
-
-      button:hover {
-        transform: scale(1.03);
-        background: linear-gradient(135deg, var(--color-secondary), var(--color-primary));
-      }
-
-      .result-box {
-        text-align: center;
-        font-size: 1.2rem;
-        font-weight: 700;
-      }
-
-      #kategoriBMI {
-        font-size: 1.5rem;
-        font-weight: 800;
-        margin-top: 5px;
-      }
-
-      .bmi-bar {
+    }
+    .bmi-bar {
         width: 100%;
         height: 25px;
         background: #e5e7eb;
         border-radius: 12px;
         overflow: hidden;
         margin: 20px 0;
-      }
+    }
 
-      #barIndicator {
-        height: 100%;
-        width: 0;
-        transition: width 0.5s ease-out;
-      }
-
-      .tips {
+    .tips {
         margin-top: 15px;
         font-size: 1rem;
-        color: #555;
-        padding: 10px;
-        border: 1px dashed var(--color-secondary);
+        padding: 1rem;
+        border: 1px dashed var(--primary-green);
         border-radius: 8px;
         background-color: #f9fcff;
       }
@@ -270,9 +188,14 @@
         text-align: center;
       }
 
+      #artikel h2 {
+        color: var(--color-primary);
+        margin-bottom: 20px;
+      }
+
       .article-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 20px;
       }
 
@@ -314,50 +237,12 @@
         color: white;
         text-align: center;
         padding: 20px 0;
-        margin-top: 20px;
       }
 
-      /* ====== RESPONSIVE ====== */
-      @media (max-width: 900px) {
-        .nav-links {
-          display: none;
-          position: absolute;
-          right: 20px;
-          top: 65px;
-        }
-
-        .hamburger {
-          display: flex;
-        }
-
-        h1 {
-          font-size: 1.7rem;
-        }
-
-        h2 {
-          font-size: 1.2rem;
-        }
-
-        .card {
-          max-width: 95%;
-        }
-
-        .article-card img {
-          height: 180px;
-        }
-      }
-
-      @media (max-width: 480px) {
-        h1 {
-          font-size: 1.5rem;
-        }
-
-        .article-card img {
-          height: 150px;
-        }
-
-        button {
-          font-size: 1rem;
+      @media (max-width: 768px) {
+        .bmi-wrapper {
+          flex-direction: column;
+          align-items: center;
         }
       }
     </style>
@@ -368,16 +253,13 @@
     <header class="navbar">
       <div class="nav-container">
         <div class="nav-logo"><a href="index.html">Special Health</a></div>
-        <nav class="nav-links" id="navMenu">
+        <nav class="nav-links">
           <a href="index.html">Beranda</a>
           <a href="monitoring_tidur.html">Monitoring Tidur</a>
           <a href="kalkulator.html">Kalkulator Gizi</a>
           <a href="BMI.html">BMI</a>
           <a href="monitoring_minum.html">Monitoring Air</a>
         </nav>
-        <div class="hamburger" id="hamburger">
-          <span></span><span></span><span></span>
-        </div>
       </div>
     </header>
 
@@ -387,6 +269,7 @@
       <h2>Aplikasi Kesehatan & Kebugaran</h2>
 
       <div class="bmi-wrapper">
+        <!-- Input -->
         <div class="card">
           <h3>Input Data Diri</h3>
           <label for="tinggi">Tinggi (cm)</label>
@@ -398,6 +281,7 @@
           <button onclick="hitungBMI()">Hitung BMI</button>
         </div>
 
+        <!-- Hasil -->
         <div class="card">
           <h3>Hasil Perhitungan</h3>
           <div class="result-box" id="nilaiBMI">BMI: -</div>
@@ -415,8 +299,8 @@
       </div>
     </main>
 
-    <!-- ====== ARTIKEL ====== -->
-    <section id="artikel">
+    <!-- ====== ARTIKEL KESEHATAN ====== -->
+    <section id="artikel" class="articles">
       <div class="container">
         <h2>Artikel Kesehatan Terbaru</h2>
         <div class="article-grid">
@@ -424,10 +308,7 @@
             <img src="https://unair.ac.id/wp-content/uploads/2023/11/10a-1.png" />
             <div class="article-content">
               <h3>Pola Makan Seimbang</h3>
-              <p>
-                Pola makan seimbang sangat penting untuk menjaga kesehatan tubuh. Pastikan
-                mengonsumsi makanan dengan nutrisi lengkap.
-              </p>
+              <p>Pola makan seimbang sangat penting untuk menjaga kesehatan tubuh. Pastikan untuk mengonsumsi berbagai jenis makanan yang mengandung nutrisi yang dibutuhkan tubuh.</p>
               <a href="#">Baca Selengkapnya →</a>
             </div>
           </article>
@@ -435,11 +316,8 @@
           <article class="article-card">
             <img src="https://res.cloudinary.com/dk0z4ums3/image/upload/v1664185466/attached_image/cara-menghitung-berat-badan-ideal-wanita-dan-langkah-memperolehnya.jpg" />
             <div class="article-content">
-              <h3>Pantau Tinggi & Berat Badan</h3>
-              <p>
-                Pemantauan rutin tinggi dan berat badan membantu menjaga kondisi tubuh tetap
-                ideal dan mencegah obesitas.
-              </p>
+              <h3>Pantau Tinggi dan Berat Badan Secara Berkala</h3>
+              <p>Untuk menjaga kesehatan, penting untuk memantau tinggi dan berat badan secara berkala. Hal ini membantu dalam mengidentifikasi perubahan yang mungkin memerlukan perhatian lebih lanjut.</p>
               <a href="#">Baca Selengkapnya →</a>
             </div>
           </article>
@@ -448,10 +326,7 @@
             <img src="https://columbiaasia.co.id/wp-content/uploads/2024/03/rsca-article-obesitas-scaled.jpg" />
             <div class="article-content">
               <h3>Bahaya Obesitas</h3>
-              <p>
-                Obesitas dapat meningkatkan risiko penyakit kronis seperti diabetes, jantung,
-                dan tekanan darah tinggi.
-              </p>
+              <p>Obesitas dapat meningkatkan risiko berbagai penyakit, termasuk diabetes, penyakit jantung, dan tekanan darah tinggi. Penting untuk menjaga berat badan yang sehat melalui pola makan seimbang dan olahraga teratur.</p>
               <a href="#">Baca Selengkapnya →</a>
             </div>
           </article>
@@ -463,7 +338,6 @@
     <footer>© 2025 Special Health. Dibuat untuk gaya hidup yang lebih sehat.</footer>
 
     <script>
-      // Kalkulator BMI
       function hitungBMI() {
         const tinggi = parseFloat(document.getElementById("tinggi").value) / 100;
         const berat = parseFloat(document.getElementById("berat").value);
@@ -474,26 +348,26 @@
         }
 
         const bmi = (berat / (tinggi * tinggi)).toFixed(1);
-        let kategori = "",
-          tips = "",
-          barColor = "";
+        let kategori = "";
+        let tips = "";
+        let barColor = "";
 
         if (bmi < 18.5) {
           kategori = "Kekurangan berat badan";
           tips = "Perbanyak asupan bergizi dan kalori sehat.";
-          barColor = "var(--color-info)";
+          barColor = "#4b9cd3";
         } else if (bmi < 25) {
           kategori = "Normal";
           tips = "Pertahankan pola makan & olahraga teratur!";
-          barColor = "var(--color-secondary)";
+          barColor = "#3cb371";
         } else if (bmi < 30) {
           kategori = "Kelebihan berat badan";
           tips = "Kurangi kalori & tingkatkan aktivitas fisik.";
-          barColor = "var(--color-accent)";
+          barColor = "#f1c40f";
         } else {
           kategori = "Obesitas";
           tips = "Konsultasikan ke profesional kesehatan.";
-          barColor = "var(--color-danger)";
+          barColor = "#e74c3c";
         }
 
         document.getElementById("nilaiBMI").innerText = "BMI: " + bmi;
@@ -502,18 +376,11 @@
         document.getElementById("tips").innerText = tips;
 
         const bar = document.getElementById("barIndicator");
-        const barWidth = Math.min(100, (bmi / 40) * 100);
+        const maxBMI = 40;
+        const barWidth = Math.min(100, (bmi / maxBMI) * 100);
         bar.style.width = barWidth + "%";
         bar.style.background = barColor;
       }
-
-      // Hamburger Menu
-      const hamburger = document.getElementById("hamburger");
-      const navMenu = document.getElementById("navMenu");
-
-      hamburger.addEventListener("click", () => {
-        navMenu.classList.toggle("active");
-      });
     </script>
   </body>
 </html>

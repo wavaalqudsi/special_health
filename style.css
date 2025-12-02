@@ -9,6 +9,11 @@
   --light-text: #ffffff;
   --grey-bg: #f4f4f4;
 }
+html, body {
+  height: 100%;
+  height: 100%;
+
+}
 
 * {
   margin: 0;
@@ -17,325 +22,283 @@
 }
 
 body {
+  display: flex;
+  flex-direction: column;
   font-family: "Poppins", sans-serif;
-  line-height: 1.6;
   color: var(--dark-text);
-  background-color: #ffffff;
-}
-
-.container {
-  max-width: 1600px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-a {
-  text-decoration: none;
-  color: var(--primary-green);
-}
-
-/* 1. Navbar */
-header {
-  background-color: var(--light-text);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-header nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 0;
-}
-
-.logo {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--primary-green);
-}
-
-header nav ul {
-  list-style: none;
-  display: flex;
-  gap: 2rem;
-}
-
-header nav ul li a {
-  color: var(--dark-text);
-  font-weight: 600;
-  transition: color 0.3s ease;
-}
-
-header nav ul li a:hover {
-  color: var(--primary-green);
-}
-
-/* 2. Hero Banner */
-.hero {
-  background: linear-gradient(rgba(45, 139, 87, 0.7), rgba(60, 179, 113, 0.7)),
-    url("img/run.jpg")
-      no-repeat center center/cover;
-  height: 60vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: var(--light-text);
-  padding: 0 20px;
-}
-
-.hero-content h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-
-.hero-content p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-}
-
-.cta-button {
-  background-color: var(--light-text);
-  color: var(--primary-green);
-  padding: 12px 25px;
-  border-radius: 50px;
-  font-weight: 700;
-  transition: all 0.3s ease;
-}
-
-.cta-button:hover {
-  background-color: var(--secondary-green);
-  color: var(--light-text);
-  transform: translateY(-3px);
-}
-
-/* 3. Bagian Fitur */
-.features,
-.articles {
-  padding: 4rem 0;
-}
-
-.features {
   background-color: var(--light-green-bg);
 }
 
-h2 {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 3rem;
-  color: var(--primary-green);
+.bg-white {
+  background-color: white;
 }
 
-.feature-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-}
-
-.feature-card {
-  background-color: #ffffff;
-  padding: 2rem;
-  text-align: center;
-  border-radius: 10px;
+header {
+  position: sticky;
+  top: 0;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 5;
 }
 
-.feature-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+header > nav {
+  padding: 0.5rem;
+  max-width: 1600px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
-.feature-card i {
+header a {
+  padding: 0.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--dark-text);
+}
+
+header h1 {
+  flex-grow: 1;
+  font-size: 1.5rem;
+}
+
+header h1 > a {
+  color: var(--primary-green);
+  font-weight: bolder;
+}
+
+header.green {
+  background-color: var(--primary-green);
+  color: var(--light-text);
+}
+
+header.green * {
+  background-color: var(--primary-green);
+  color: var(--light-text);
+}
+
+footer {
+  background-color: var(--primary-green);
+  text-align: center;
+  font-weight: 600;
+  padding: 1rem;
+  color: var(--light-text);
+}
+
+.hero {
+  height: 60vh;
+  background:linear-gradient(rgba(45, 139, 87, 0.7), rgba(60, 179, 113, 0.7)), url("img/run.jpg") no-repeat center center/cover;
+  color: var(--light-text);
+}
+
+.hero h1 {
   font-size: 3rem;
-  color: var(--secondary-green);
+}
+
+.hero .center {
+  gap: 1rem;
+}
+
+.center {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  padding: 0.8rem 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  background-color: var(--light-text);
+  color: var(--primary-green);
+  border-radius: 1.5rem;
+  border: 2px solid transparent;
+  width: fit-content;
+}
+
+#fitur, #artikel {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 3rem 0;
+}
+
+#fitur h2, #artikel h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+#artikel a {
+  text-decoration: none;
+  color: var(--primary-green);
+  font-weight: 600;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background-color: white;
+  padding: 2rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.container h2 {
+  text-align: center;
+  color: var(--primary-green);
   margin-bottom: 1rem;
 }
 
-.feature-card h3 {
-  margin-bottom: 0.5rem;
-  font-size: 1.25rem;
-}
-
-.feature-card a {
-  display: inline-block;
-  margin-top: 1rem;
-  background-color: var(--primary-green);
-  color: var(--light-text);
-  padding: 8px 20px;
-  border-radius: 50px;
-  font-weight: 600;
-  transition: background-color 0.3s ease;
-}
-
-.feature-card a:hover {
-  background-color: var(--secondary-green);
-}
-
-/* 4. Bagian Artikel */
-.article-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-}
-
-.article-card {
-  background: #fff;
-  border-radius: 10px;
+.card {
+  text-decoration: none;
+  color: var(--dark-text);
+  border-radius: 0.5rem;
+  flex: 1 1 250px;
+  padding: 2rem;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: all 300ms;
 }
 
-.article-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+.card:hover {
+  transform: translateY(-0.5rem);
 }
 
-.article-card img {
-  width: 100%;
+.card-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem 1.5rem;
+}
+
+#artikel .card {
+  padding: 0;
+}
+
+#artikel .card > img {
+  aspect-ratio: 16 / 9;
   height: 200px;
   object-fit: cover;
 }
 
-.article-content {
-  padding: 1.5rem;
+.row {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  flex-wrap: wrap;
 }
 
-.article-content h3 {
-  margin-bottom: 0.5rem;
+
+fieldset {
+  justify-content: center;
+  border: none;
+  display: flex;
+  gap: 1rem;
 }
 
-.article-content p {
-  margin-bottom: 1rem;
-  color: #666;
-}
-
-.article-content a {
+label {
   font-weight: 600;
 }
 
-/* 5. Footer */
-footer {
+fieldset label {
+  flex: 0 0 120px;
+}
+
+input {
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--primary-green);
+  border-radius: 0.5rem;
+  font-family: "Poppins";
+}
+
+input[type="submit"]:hover {
+  background-color: var(--secondary-green);
+}
+
+input[type="submit"]:active {
+  background-color: var(--primary-green);
+}
+
+fieldset input {
+  width: 200px;
+  text-align: center;
+}
+
+.bg-green {
   background-color: var(--primary-green);
   color: var(--light-text);
+}
+
+.btn-fit {
+  margin-top: 1rem;
+  align-self: center;
+  transition: all 300ms;
+}
+
+.btn-fit:hover {
+  opacity: 0.9;
+}
+
+.heading {
   text-align: center;
-  padding: 2rem 0;
+  color: var(--primary-green);
 }
 
-/* ======== SMOOTH NAVBAR ANIMATION ======== */
-html {
-  scroll-behavior: smooth; /* 🌊 Scroll halus ke anchor */
+.heading-black {
+  text-align: center;
+  color: var(--dark-text);
 }
 
-/* Efek buka tutup menu lebih lembut */
-@media (max-width: 768px) {
-  header nav ul {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    background-color: var(--light-text);
-    text-align: center;
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: all 0.5s ease-in-out;
-    border-top: 1px solid #eee;
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 1rem;
+}
+
+th {
+  padding: 0.5rem;
+}
+
+@media screen and (max-width: 1600px) {
+  .row {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
-  header nav.active ul {
-    max-height: 500px;
-    opacity: 1;
-    padding: 10px 0;
+  html {
+    font-size: 12px;
   }
 
-  header nav ul li {
-    opacity: 0;
-    transform: translateY(-10px);
-    transition: all 0.3s ease;
-  }
-
-  header nav.active ul li {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* Burger icon smooth transform */
-  .menu-toggle.active i {
-    transform: rotate(90deg);
-    transition: transform 0.3s ease;
+  svg {
+    height: 48px;
   }
 }
 
-
-/* ======== RESPONSIVE NAVBAR ======== */
-
-/* Sembunyikan menu toggle di desktop */
-.menu-toggle {
-  display: none;
-}
-
-/* Saat layar kecil (HP/Tablet) */
-@media (max-width: 768px) {
-  header nav {
-    position: relative;
-    flex-wrap: wrap;
+@media screen and (max-width: 800px) {
+  svg {
+    height: 32px;
   }
 
+  .hero h1 {
+    font-size: 2rem;
+  }
   .hero {
-    height: 100vh;
-  }
-
-  .menu-toggle {
-    display: block;
-    font-size: 1.8rem;
-    color: var(--primary-green);
-    cursor: pointer;
-    transition: transform 0.3s ease;
-  }
-
-  header nav ul {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    background-color: var(--light-text);
     text-align: center;
-    max-height: 0;
-    overflow: hidden;
-    transition: all 0.4s ease-in-out;
-    border-top: 1px solid #eee;
+    padding: 1rem;
   }
 
-  /* Saat menu aktif */
-  header nav.active ul {
-    max-height: 500px; /* cukup besar agar seluruh menu terlihat */
-    padding: 10px 0;
+  #artikel .card > img {
+    height: auto;
+    width: 100%;
   }
 
-  /* Tambahkan animasi muncul item satu per satu */
-  header nav ul li {
-    opacity: 0;
-    transform: translateY(-10px);
-    transition: all 0.3s ease;
-  }
-
-  header nav.active ul li {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* Animasikan ikon burger jadi "X" */
-  .menu-toggle.active i {
-    transform: rotate(90deg);
-    transition: transform 0.3s ease;
-  }
-}
-
-/* Hilangkan burger di desktop */
-@media (min-width: 769px) {
-  .menu-toggle {
-    display: none;
+  footer {
+    font-size: x-small;
   }
 }
