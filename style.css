@@ -189,6 +189,7 @@ footer {
 
 .row {
   display: flex;
+  flex-direction: row;
   gap: 1.5rem;
   flex-wrap: wrap;
 }
@@ -201,18 +202,32 @@ fieldset {
   gap: 1rem;
 }
 
-fieldset label {
+label {
   font-weight: 600;
+}
+
+fieldset label {
   flex: 0 0 120px;
 }
 
-fieldset input {
-  border: 2px solid var(--primary-green);
+input {
   padding: 0.5rem 1rem;
-  width: 200px;
-  text-align: center;
+  border: 2px solid var(--primary-green);
   border-radius: 0.5rem;
   font-family: "Poppins";
+}
+
+input[type="submit"]:hover {
+  background-color: var(--secondary-green);
+}
+
+input[type="submit"]:active {
+  background-color: var(--primary-green);
+}
+
+fieldset input {
+  width: 200px;
+  text-align: center;
 }
 
 .bg-green {
