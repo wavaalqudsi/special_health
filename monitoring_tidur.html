@@ -1,56 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Monitoring tidur</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header class="green">
-        <nav>
-            <h1>
-                <a href="index.html">Special Health</a>
-            </h1>
-            <a href="monitoring_tidur.html">Monitoring Tidur</a>
-            <a href="macro-kalkulator.html">Kalkulator Gizi</a>
-            <a href="BMI.html">BMI</a>
-            <a href="monitoring_minum.html">Monitoring Air Minum</a>
-        </nav>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="bg-white">
+      <nav>
+        <h1>
+          <a href="index.html">Special Health</a>
+        </h1>
+        <a href="monitoring_tidur.html">Monitoring Tidur</a>
+        <a href="kalkulator_macro.html">Kalkulator Makro</a>
+        <a href="BMI.html">BMI</a>
+        <a href="monitoring_minum.html">Monitoring Air Minum</a>
+      </nav>
     </header>
     <main class="center">
-        <div class="container">
-            <h2 class="heading" style="font-size: 2rem;">Monitoring Tidur</h2>
-            <fieldset>
-                <label for="tidur">Jam Tidur:</label>
-                <input type="time" name="tidur" id="tidur">
-            </fieldset>
+      <div class="container">
+        <h2 class="heading" style="font-size: 2rem">Monitoring Tidur</h2>
+        <fieldset>
+          <label for="tidur">Jam Tidur:</label>
+          <input type="time" name="tidur" id="tidur" />
+        </fieldset>
 
-            <fieldset>
-                <label for="bangun">Jam Bangun:</label>
-                <input type="time" name="bangun" id="bangun">
-            </fieldset>
+        <fieldset>
+          <label for="bangun">Jam Bangun:</label>
+          <input type="time" name="bangun" id="bangun" />
+        </fieldset>
 
-            <input type="submit" value="Simpan data tidur" class="btn bg-green btn-fit">
-            <div>
-                <h3 class="heading-black" style="margin-top: 2rem; margin-bottom: 1rem;">Riwayat Tidur</h3>
-                <table>
-                    <thead class="bg-green">
-                        <tr>
-                            <th>Tanggal</th>
-                            <th>Jam Tidur</th>
-                            <th>Jam Bangun</th>
-                            <th>Durasi (jam)</th>
-                        </tr>
-                    </thead>
-                </table>
-            </div>
+        <input
+          type="submit"
+          value="Simpan data tidur"
+          class="btn bg-green btn-fit"
+        />
+        <div>
+          <h3
+            class="heading-black"
+            style="margin-top: 2rem; margin-bottom: 1rem"
+          >
+            Riwayat Tidur
+          </h3>
+          <table>
+            <thead class="bg-green">
+              <tr>
+                <th>Tanggal</th>
+                <th>Jam Tidur</th>
+                <th>Jam Bangun</th>
+                <th>Durasi (jam)</th>
+              </tr>
+            </thead>
+          </table>
         </div>
+      </div>
     </main>
     <footer>
-        <p>
-            &copy; 2025 Special Health. Dibuat untuk gaya hidup yang lebih sehat.
-        </p>
+      <p>
+        &copy; 2025 Special Health. Dibuat untuk gaya hidup yang lebih sehat.
+      </p>
     </footer>
-</body>
+  </body>
 </html>

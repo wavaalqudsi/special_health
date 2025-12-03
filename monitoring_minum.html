@@ -1,25 +1,12 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Monitoring Kebutuhan Air</title>
+    <title>Monitoring Air Minum</title>
+    <link rel="stylesheet" href="style.css" />
     <style>
-      :root {
-        --primary-green: #4b9b6e;
-        --secondary-green: #6bbf8a;
-        --background-green: #2e7d5c;
-        --accent-green: #a8d5ba;
-        --light-green: #e0f2fe;
-      }
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
+        body {
         font-family: "Poppins", Arial, sans-serif;
         background-color: var(--light-green);
         color: #333;
@@ -28,104 +15,6 @@
         min-height: 100vh;
       }
 
-      /* 🔹 Navbar */
-      nav {
-        background-color: var(--primary-green);
-        padding: 1rem 2rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        position: sticky;
-        top: 0;
-        z-index: 100;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      }
-
-      .logo {
-        color: white;
-        font-weight: 700;
-        font-size: 1.3rem;
-        letter-spacing: 1px;
-      }
-
-      /* Menu utama */
-      ul.nav-links {
-        display: flex;
-        list-style: none;
-        gap: 1.5rem;
-        transition: all 0.3s ease;
-      }
-
-      ul.nav-links li a {
-        color: white;
-        text-decoration: none;
-        font-weight: 600;
-        transition: 0.3s;
-      }
-
-      ul.nav-links li a:hover {
-        color: var(--accent-green);
-      }
-
-      /* Tombol burger */
-      .burger {
-        display: none;
-        flex-direction: column;
-        justify-content: center;
-        cursor: pointer;
-        gap: 5px;
-      }
-
-      .burger div {
-        width: 25px;
-        height: 3px;
-        background-color: white;
-        border-radius: 2px;
-        transition: all 0.3s ease;
-      }
-
-      /* Responsif menu */
-      @media (max-width: 768px) {
-        .burger {
-          display: flex;
-        }
-
-        ul.nav-links {
-          position: absolute;
-          top: 70px;
-          left: 0;
-          width: 100%;
-          flex-direction: column;
-          background-color: var(--primary-green);
-          text-align: center;
-          max-height: 0;
-          overflow: hidden;
-          opacity: 0;
-        }
-
-        ul.nav-links.active {
-          max-height: 300px;
-          opacity: 1;
-          padding: 10px 0;
-        }
-
-        ul.nav-links li {
-          margin: 10px 0;
-        }
-
-        /* Burger animasi */
-        .burger.toggle div:nth-child(1) {
-          transform: rotate(45deg) translateY(8px);
-        }
-        .burger.toggle div:nth-child(2) {
-          opacity: 0;
-        }
-        .burger.toggle div:nth-child(3) {
-          transform: rotate(-45deg) translateY(-8px);
-        }
-      }
-
-      /* 🔹 Main Layout */
       main {
         display: flex;
         flex: 1;
@@ -192,146 +81,28 @@
         box-shadow: 0 0 6px rgba(199, 247, 255, 0.804);
         outline: none;
       }
-
-      .water-container {
-        position: relative;
-        width: 100px;
-        height: 280px;
-        border: 3px solid #60a5fa;
-        border-radius: 30px;
-        overflow: hidden;
-        background-color: var(--light-green);
-      }
-
-      .water {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        background: linear-gradient(to top, #3b82f6, #e0f2fe);
-        height: 0%;
-        transition: height 0.4s ease;
-      }
-
-      input[type="range"] {
-        width: 220px;
-        margin-top: 15px;
-        accent-color: var(--secondary-green);
-      }
-
-      /* 🔹 Artikel Section */
-      #artikel {
-        padding: 50px 20px;
-        background-color: #f8fafc;
-      }
-
-      #artikel .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        text-align: center;
-      }
-
-      #artikel h2 {
-        color: var(--background-green);
-        margin-bottom: 30px;
-      }
-
-      .article-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 30px;
-      }
-
-      .article-card {
-        background-color: white;
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s ease;
-      }
-
-      .article-card:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
-      }
-
-      .article-card img {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-      }
-
-      .article-content {
-        padding: 15px;
-      }
-
-      .article-content h3 {
-        color: var(--primary-green);
-        margin-bottom: 8px;
-      }
-
-      .article-content p {
-        color: #555;
-        font-size: 0.95rem;
-        margin-bottom: 10px;
-      }
-
-      .article-content a {
-        text-decoration: none;
-        color: var(--background-green);
-        font-weight: bold;
-        transition: color 0.3s;
-      }
-
-      .article-content a:hover {
-        color: var(--primary-green);
-      }
-
-      /* 🔹 Footer */
-      footer {
-        background-color: var(--background-green);
-        color: white;
-        text-align: center;
-        padding: 18px;
-        font-size: 0.95rem;
-        box-shadow: 0 -3px 8px rgba(0, 0, 0, 0.1);
-      }
-
-      /* 🔹 Responsiveness */
-      @media (max-width: 992px) {
-        main {
-          flex-direction: column;
-        }
-        aside.left,
-        aside.right {
-          width: 100%;
-        }
-      }
     </style>
   </head>
-
   <body>
-    <!-- 🔹 Navbar -->
-    <nav>
-      <div class="logo">Special Health</div>
-      <ul class="nav-links">
-        <li><a href="index.html">Beranda</a></li>
-        <li><a href="monitoring_tidur.html">Monitoring Tidur</a></li>
-        <li><a href="kalkulator.html">Kalkulator Gizi</a></li>
-        <li><a href="BMI.html">Kalkulator BMI</a></li>
-        <li><a href="monitoring_minum.html" style="color: var(--accent-green)">Monitoring Air</a></li>
-      </ul>
-      <div class="burger">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-    </nav>
+    <header class="bg-white">
+      <nav>
+        <h1>
+          <a href="index.html">Special Health</a>
+        </h1>
+        <a href="monitoring_tidur.html">Monitoring Tidur</a>
+        <a href="kalkulator_macro.html">Kalkulator Makro</a>
+        <a href="BMI.html">BMI</a>
+        <a href="monitoring_minum.html">Monitoring Air Minum</a>
+      </nav>
+    </header>
 
     <main>
       <!-- Kiri -->
       <aside class="left">
         <h2>Total Kebutuhan</h2>
-        <p style="font-size: 28px; color: #2563eb; font-weight: bold">2000 ml</p>
+        <p style="font-size: 28px; color: #2563eb; font-weight: bold">
+          2000 ml
+        </p>
         <p>per hari</p>
       </aside>
 
@@ -349,78 +120,23 @@
           <div class="water" id="water"></div>
         </div>
         <p id="persen">0%</p>
-        <input type="range" min="0" max="2000" step="50" value="0" id="slider" />
+        <input
+          type="range"
+          min="0"
+          max="2000"
+          step="50"
+          value="0"
+          id="slider"
+        />
       </aside>
     </main>
 
-    <!-- 🔹 Artikel -->
-    <section id="artikel">
-      <div class="container">
-        <h2>Artikel Kesehatan Terbaru</h2>
-        <div class="article-grid">
-          <article class="article-card">
-            <img src="https://rsum.bandaacehkota.go.id/wp-content/uploads/2025/04/jalan_kaki.webp" alt="Jalan kaki" />
-            <div class="article-content">
-              <h3>5 Manfaat Jalan Kaki Setiap Pagi untuk Jantung</h3>
-              <p>Jalan kaki adalah olahraga sederhana namun berdampak besar bagi kesehatan jantung...</p>
-              <a href="#">Baca Selengkapnya →</a>
-            </div>
-          </article>
+    <footer>
+      <p>
+        &copy; 2025 Special Health. Dibuat untuk gaya hidup yang lebih sehat.
+      </p>
+    </footer>
 
-          <article class="article-card">
-            <img src="https://image.idntimes.com/post/20220113/10-ide-menu-sarapan-enak-tanpa-nasi-sarapan-yang-tidak-membosankan-9cde86371d7fc78c91ae80a6ffab250e-c9f29f91a352064bef58fb8fb9b5517b.jpg" alt="Sarapan sehat" />
-            <div class="article-content">
-              <h3>Pentingnya Sarapan Sehat Sebelum Aktivitas</h3>
-              <p>Jangan lewatkan sarapan! Makanan pagi memberi energi untuk beraktivitas optimal.</p>
-              <a href="#">Baca Selengkapnya →</a>
-            </div>
-          </article>
-
-          <article class="article-card">
-            <img src="https://i0.wp.com/holisticare.co.id/wp-content/uploads/2017/09/Manajemen-Stress-Orang-Sukses-1.jpg?fit=800%2C350&ssl=1" alt="Manajemen stres" />
-            <div class="article-content">
-              <h3>Cara Mengelola Stres dengan Teknik Pernapasan</h3>
-              <p>Pelajari teknik sederhana untuk menenangkan pikiran dan menjaga fokus.</p>
-              <a href="#">Baca Selengkapnya →</a>
-            </div>
-          </article>
-
-          <article class="article-card">
-            <img src="https://pdaminfo.pdampintar.id/wp-content/uploads/2022/08/Air-Minum-Dalam-Kemasan.jpg" alt="Air minum" />
-            <div class="article-content">
-              <h3>Minum Air yang Cukup Setiap Hari</h3>
-              <p>Air penting untuk metabolisme dan keseimbangan cairan tubuh. Pastikan asupanmu cukup setiap hari!</p>
-              <a href="#">Baca Selengkapnya →</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- 🔹 Footer -->
-    <footer>© 2025 Aplikasi Kesehatan & Kebugaran</footer>
-
-    <script>
-      // 🔹 Fungsi slider air
-      const slider = document.getElementById("slider");
-      const water = document.getElementById("water");
-      const persen = document.getElementById("persen");
-
-      slider.addEventListener("input", () => {
-        const value = slider.value;
-        const percent = Math.min((value / 2000) * 100, 100);
-        water.style.height = percent + "%";
-        persen.textContent = Math.round(percent) + "%";
-      });
-
-      // 🔹 Fungsi burger menu
-      const burger = document.querySelector(".burger");
-      const navLinks = document.querySelector(".nav-links");
-
-      burger.addEventListener("click", () => {
-        navLinks.classList.toggle("active");
-        burger.classList.toggle("toggle");
-      });
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
