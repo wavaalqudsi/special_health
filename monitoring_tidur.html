@@ -1,116 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Monitoring tidur</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <header class="bg-white">
-      <nav>
-        <h1>
-          <a href="index.html">Special Health</a>
-        </h1>
-        <a href="monitoring_tidur.html">Monitoring Tidur</a>
-        <a href="kalkulator_macro.html">Kalkulator Makro</a>
-        <a href="BMI.html">BMI</a>
-        <a href="monitoring_minum.html">Monitoring Air Minum</a>
-      </nav>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        main {
+            padding-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="green">
+        <nav>
+            <h1>
+                <a href="index.html">Special Health</a>
+            </h1>
+            <a href="monitoring_tidur.html">Monitoring Tidur</a>
+            <a href="macro-kalkulator.html">Kalkulator Gizi</a>
+            <a href="BMI.html">BMI</a>
+            <a href="monitoring_minum.html">Monitoring Air Minum</a>
+        </nav>
     </header>
-    <main class="center">
-      <div class="container">
-        <h2 class="heading" style="font-size: 2rem">Monitoring Tidur</h2>
-        <fieldset>
-          <label for="tidur">Jam Tidur:</label>
-          <input type="time" name="tidur" id="tidur" />
-        </fieldset>
+    <main>
+        <div class="container">
+            <h2 class="heading" style="font-size: 2rem;">Monitoring Tidur</h2>
+            <fieldset>
+                <label for="tidur">Jam Tidur:</label>
+                <input type="time" name="tidur" id="tidur">
+            </fieldset>
 
-        <fieldset>
-          <label for="bangun">Jam Bangun:</label>
-          <input type="time" name="bangun" id="bangun" />
-        </fieldset>
+            <fieldset>
+                <label for="bangun">Jam Bangun:</label>
+                <input type="time" name="bangun" id="bangun">
+            </fieldset>
 
-        <input
-          type="submit"
-          value="Simpan data tidur"
-          class="btn bg-green btn-fit"
-        />
-        <div>
-          <h3
-            class="heading-black"
-            style="margin-top: 2rem; margin-bottom: 1rem"
-          >
-            Riwayat Tidur
-          </h3>
-          <table>
-            <thead class="bg-green">
-              <tr>
-                <th>Tanggal</th>
-                <th>Jam Tidur</th>
-                <th>Jam Bangun</th>
-                <th>Durasi (jam)</th>
-              </tr>
-            </thead>
-          </table>
+            <input type="submit" value="Simpan data tidur" class="btn bg-green btn-fit">
+            <div>
+                <h3 class="heading-black" style="margin-top: 2rem; margin-bottom: 1rem;">Riwayat Tidur</h3>
+                <table>
+                    <thead class="bg-green">
+                        <tr>
+                            <th>Tanggal</th>
+                            <th>Jam Tidur</th>
+                            <th>Jam Bangun</th>
+                            <th>Durasi (jam)</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
         </div>
-      </div>
-
+        <div id="artikel">
+            <h2 class="heading">Artikel Kesehatan Terbaru</h2>
+            <div class="row">
+                <div class="card">
+                    <img src="https://live.staticflickr.com/65535/52005071261_47bce58a6a_z.jpg" alt="Gambar artikel 1">
+                    <div class="card-item">
+                        <h3>Manfaat Berlari</h3>
+                        <p>Berlari adalah olahraga yang efektif untuk meningkatkan kesehatan jantung dan membakar kalori...</p>
+                        <a href="">Baca selengkapnya →</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://img-cdn.medkomtek.com/EpZ2jZUZALoIER9kQoX_H_rJn9Y=/510x395/smart/filters:quality(100):format(webp)/article/9VVFi0_Ghv88zWl_ZEAJ9/original/1670242009-Fakta%20Seputar%20Virus%20Zombie%20yang%20Ditemukan%20di%20Rusia.jpg" alt="Gambar artikel 2">
+                    <div class="card-item">
+                        <h3>Manfaat Berlari</h3>
+                        <p> Obesitas, diabetes, dan penyakit jantung adalah beberapa penyakit yang dapat mengancam kesehatan Anda. Penting untuk menjaga pola makan dan gaya hidup sehat. </p>
+                        <a href="">Baca selengkapnya →</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://rsud.acehjayakab.go.id/media/2021.07/Pentingnya_Menjaga_Gaya_Hidup_Sehat.png" alt="Gambar artikel 3">
+                    <div class="card-item">
+                        <h3>Manfaat Berlari</h3>
+                        <p> Pola hidup sehat meliputi kebiasaan makan yang baik, olahraga teratur, dan cukup tidur. Dengan menerapkan pola hidup sehat, Anda dapat meningkatkan kualitas hidup dan mencegah berbagai penyakit. </p>
+                        <a href="">Baca selengkapnya →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
-    <div id="artikel">
-      <h2 class="heading">Artikel Kesehatan Terbaru</h2>
-      <div class="row">
-        <div class="card">
-          <img
-            src="https://live.staticflickr.com/65535/52005071261_47bce58a6a_z.jpg"
-            alt="Gambar artikel 1"
-          />
-          <div class="card-item">
-            <h3>Manfaat Berlari</h3>
-            <p>
-              Berlari adalah olahraga yang efektif untuk meningkatkan
-              kesehatan jantung dan membakar kalori...
-            </p>
-            <a href="">Baca selengkapnya →</a>
-          </div>
-        </div>
-        <div class="card">
-          <img
-            src="https://img-cdn.medkomtek.com/EpZ2jZUZALoIER9kQoX_H_rJn9Y=/510x395/smart/filters:quality(100):format(webp)/article/9VVFi0_Ghv88zWl_ZEAJ9/original/1670242009-Fakta%20Seputar%20Virus%20Zombie%20yang%20Ditemukan%20di%20Rusia.jpg"
-            alt="Gambar artikel 2"
-          />
-          <div class="card-item">
-            <h3>Manfaat Berlari</h3>
-            <p>
-              Obesitas, diabetes, dan penyakit jantung adalah beberapa
-              penyakit yang dapat mengancam kesehatan Anda. Penting untuk
-              menjaga pola makan dan gaya hidup sehat.
-            </p>
-            <a href="">Baca selengkapnya →</a>
-          </div>
-        </div>
-        <div class="card">
-          <img
-            src="https://rsud.acehjayakab.go.id/media/2021.07/Pentingnya_Menjaga_Gaya_Hidup_Sehat.png"
-            alt="Gambar artikel 3"
-          />
-          <div class="card-item">
-            <h3>Manfaat Berlari</h3>
-            <p>
-              Pola hidup sehat meliputi kebiasaan makan yang baik, olahraga
-              teratur, dan cukup tidur. Dengan menerapkan pola hidup sehat,
-              Anda dapat meningkatkan kualitas hidup dan mencegah berbagai
-              penyakit.
-            </p>
-            <a href="">Baca selengkapnya →</a>
-          </div>
-        </div>
-      </div>
-    </div>
     <footer>
-      <p>
-        &copy; 2025 Special Health. Dibuat untuk gaya hidup yang lebih sehat.
-      </p>
+        <p>
+            &copy; 2025 Special Health. Dibuat untuk gaya hidup yang lebih sehat.
+        </p>
     </footer>
-  </body>
+</body>
 </html>

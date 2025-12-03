@@ -3,48 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kalkulator BMI</title>
+    <title>Kalkulator Macro</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        main {
+            padding-top: 1rem;
+        }
+
+        table {
+            text-align: left;
+            width: max-content;
+            align-self: center;
+        }
+
+        th, td {
+            padding: 0.5rem;
+        }
+        
+        .container {
+            text-align: center;
+        }
+
+        table.container {
+            width: fit-content;
+            margin-bottom: 2rem;
+        }
+
+    </style>
 </head>
-<style>
-    main {
-        padding-top: 1rem;
-    }
-
-    main > .row {
-        margin: auto;
-        max-width: 1200px;
-        width: 100%;
-    }
-
-    .container {
-        flex-grow: 1;
-        width: auto;
-    }
-
-    .bmi-bar {
-        width: 100%;
-        height: 25px;
-        background: #e5e7eb;
-        border-radius: 12px;
-        overflow: hidden;
-        margin: 20px 0;
-    }
-
-    .tips {
-        margin-top: 15px;
-        font-size: 1rem;
-        padding: 1rem;
-        border: 1px dashed var(--primary-green);
-        border-radius: 8px;
-    }
-
-    .heading-black {
-        font-weight: 600;
-        font-size: 1.5rem;
-    }
-
-</style>
 <body>
     <header class="green">
         <nav>
@@ -58,26 +44,29 @@
         </nav>
     </header>
     <main>
-        <h2 class="heading" style="font-size: 2rem; margin-bottom: 2rem;">Kalkulator BMI</h2>
-        <div class="row">
-            <div class="container">
-                <h3 class="heading">Input Data Diri</h3>
-                <label for="tinggi">Tinggi (cm)</label>
-                <input type="number" placeholder="contoh: 169" style="margin-bottom: 0.5rem;">
-                <label for="berat">Berat badan (kg)</label>
-                <input type="number" placeholder="contoh: 67" style="margin-bottom: 0.5rem;">
-                <input type="submit" value="Hitung BMI" class="bg-green">
-            </div>
-            <div class="container">
-                <h3 class="heading">Hasil Perhitungan</h3>
-                <p class="heading-black">BMI: -</p>
-                <p class="heading-black">Kategori: -</p>
-                <div class="bmi-bar"></div>
-                <div class="tips">
-                    <h3>Rekomendasi:</h3>
-                    <p>Masukkan data untuk melihat hasil.</p>
-                </div>
-            </div>
+        <div class="container">
+            <h2 class="heading" style="font-size: 2rem;">Kalkulator Macro</h2>
+            <p>Rekomendasi makro dan kalori harian berdasarkan <a href="BMI.html">BMI</a> mu</p>
+
+            <table class="container">
+                <tr>
+                    <th>Karbohidrat</th>
+                    <th>Protein</th>
+                    <th>Lemak</th>
+                </tr>
+                <tr>
+                    <td>331 g</td>
+                    <td>91 g</td>
+                    <td>80 g</td>
+                </tr>
+                <tr>
+                    <td>54.9%</td>
+                    <td>15.1%</td>
+                    <td>30.8%</td>
+                </tr>
+            </table>
+
+            <h3>2411 Kalori per hari</h3>
         </div>
         <div id="artikel">
             <h2 class="heading">Artikel Kesehatan Terbaru</h2>

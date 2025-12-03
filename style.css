@@ -1,14 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+/* Variabel Warna */
 :root {
-  --primary-green: #2d8b57;
-  --secondary-green: #3cb371;
-  --light-green-bg: #f0fff0;
+  --primary-green: #2d8b57; /* SeaGreen */
+  --secondary-green: #3cb371; /* MediumSeaGreen */
+  --light-green-bg: #f0fff0; /* Honeydew */
   --dark-text: #333333;
   --light-text: #ffffff;
   --grey-bg: #f4f4f4;
 }
-
-html,
-body {
+html, body {
   height: 100%;
 }
 
@@ -30,7 +31,6 @@ body {
   background-color: white;
 }
 
-/* Navbar Gess */
 header {
   position: sticky;
   top: 0;
@@ -38,7 +38,7 @@ header {
   z-index: 5;
 }
 
-header nav {
+header > nav {
   padding: 0.5rem;
   max-width: 1600px;
   margin: 0 auto;
@@ -59,21 +59,41 @@ header h1 {
   font-size: 1.5rem;
 }
 
-header h1 a {
+header h1 > a {
   color: var(--primary-green);
   font-weight: bolder;
 }
 
-/* Gambar Halaman Utama */
+header.green {
+  background-color: var(--primary-green);
+  color: var(--light-text);
+}
+
+header.green * {
+  background-color: var(--primary-green);
+  color: var(--light-text);
+}
+
+footer {
+  background-color: var(--primary-green);
+  text-align: center;
+  font-weight: 600;
+  padding: 1rem;
+  color: var(--light-text);
+}
+
 .hero {
-  height: 93vh;
-  background: linear-gradient(rgba(45, 139, 87, 0.7), rgba(60, 179, 113, 0.7)),
-    url("img/run.jpg") no-repeat center center/cover;
+  height: 60vh;
+  background:linear-gradient(rgba(45, 139, 87, 0.7), rgba(60, 179, 113, 0.7)), url("img/run.jpg") no-repeat center center/cover;
   color: var(--light-text);
 }
 
 .hero h1 {
   font-size: 3rem;
+}
+
+.hero .center {
+  gap: 1rem;
 }
 
 .center {
@@ -84,91 +104,26 @@ header h1 a {
   align-items: center;
 }
 
-.hero .center {
-  gap: 1rem;
-}
-
 .btn {
-  margin-top: 1rem;
   padding: 0.8rem 1.5rem;
   font-weight: bold;
   text-decoration: none;
-  background-color: var(--primary-green);
-  color: var(--light-text);
+  background-color: var(--light-text);
+  color: var(--primary-green);
   border-radius: 1.5rem;
   border: 2px solid transparent;
   width: fit-content;
 }
 
-.btn:hover {
-  background-color: var(--light-text);
-  color: var(--primary-green);
-  border: 2px solid var(--primary-green);
-}
-
-/* Fitur & Artikel */
-.heading {
-  text-align: center;
-  color: var(--primary-green);
-}
-
-.row {
-  display: flex;
-  flex-direction: row;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-}
-
-#fitur,
-#artikel {
+#fitur, #artikel {
   max-width: 1600px;
   margin: 0 auto;
   padding: 3rem 0;
 }
 
-#fitur h2,
-#artikel h2 {
+#fitur h2, #artikel h2 {
   font-size: 2rem;
   margin-bottom: 1.5rem;
-}
-
-.card {
-  text-decoration: none;
-  color: var(--dark-text);
-  border-radius: 0.5rem;
-  flex: 1 1 250px;
-  padding: 2rem;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  transition: all 300ms;
-}
-
-.card:hover {
-  transform: translateY(-1rem);
-}
-
-#fitur .card p {
-  text-align: center;
-}
-
-.card-item {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  padding: 1rem 1.5rem;
-}
-
-#artikel .card {
-  padding: 0;
-}
-
-#artikel .card img {
-  aspect-ratio: 16 / 9;
-  height: 200px;
-  object-fit: cover;
 }
 
 #artikel a {
@@ -177,7 +132,6 @@ header h1 a {
   font-weight: 600;
 }
 
-/* Monitoring Tidur */
 .container {
   display: flex;
   flex-direction: column;
@@ -195,6 +149,49 @@ header h1 a {
   color: var(--primary-green);
   margin-bottom: 1rem;
 }
+
+.card {
+  text-decoration: none;
+  color: var(--dark-text);
+  border-radius: 0.5rem;
+  flex: 1 1 250px;
+  padding: 2rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: all 300ms;
+}
+
+.card:hover {
+  transform: translateY(-0.5rem);
+}
+
+.card-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem 1.5rem;
+}
+
+#artikel .card {
+  padding: 0;
+}
+
+#artikel .card > img {
+  aspect-ratio: 16 / 9;
+  height: 200px;
+  object-fit: cover;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
 
 fieldset {
   justify-content: center;
@@ -266,186 +263,6 @@ th {
   padding: 0.5rem;
 }
 
-/* Kalkulator Gizi */
-table {
-  text-align: left;
-  width: max-content;
-  align-self: center;
-}
-
-th,
-td {
-  padding: 0.5rem;
-}
-
-.container {
-  text-align: center;
-}
-
-table.container {
-  width: fit-content;
-  margin-bottom: 2rem;
-}
-
-/* BMI */
-.bmi-wrapper {
-  display: flex;
-  gap: 30px;
-  justify-content: center;
-  flex-wrap: wrap;
-  width: 100%;
-  max-width: 1200px;
-}
-
-.bmi-bar {
-  width: 100%;
-  height: 25px;
-  background: #e5e7eb;
-  border-radius: 12px;
-  overflow: hidden;
-  margin: 20px 0;
-}
-
-.tips {
-  margin-top: 15px;
-  font-size: 1rem;
-  padding: 1rem;
-  border: 1px dashed var(--primary-green);
-  border-radius: 8px;
-  background-color: #f9fcff;
-}
-
-.card-bmi {
-  flex: 1;
-  min-width: 340px;
-  max-width: 500px;
-  padding: 25px;
-  border-radius: var(--radius-lg);
-  background: #ffffffcc;
-  box-shadow: var(--shadow-md);
-  text-align: left;
-  transition: var(--transition-fast);
-}
-
-label {
-  display: block;
-  margin-top: 15px;
-  font-weight: 600;
-}
-
-input {
-  width: 100%;
-  padding: 10px;
-  margin-top: 8px;
-  border-radius: 10px;
-  border: 2px solid var(--secondary-green);
-  font-size: 1rem;
-  transition: var(--transition-fast);
-}
-
-input:focus {
-  outline: none;
-  border-color: var(--color-primary);
-  box-shadow: 0 0 6px var(--color-primary);
-}
-
-/* Monitoring Air Minum */
-aside.left,
-aside.right {
-  flex: 1;
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border-radius: 16px;
-  padding: 20px;
-  color: var(--primary-green);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-}
-
-aside.left:hover,
-aside.right:hover {
-  transform: translateY(-5px);
-}
-
-section.center {
-  flex: 2.5;
-  background-color: #fff;
-  border-radius: 16px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 25px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-}
-
-section.center:hover {
-  transform: translateY(-5px);
-}
-
-section.center h2 {
-  margin-bottom: 10px;
-  color: var(--background-green);
-}
-
-textarea {
-  width: 90%;
-  height: 150px;
-  margin-top: 15px;
-  border: 2px solid var(--secondary-green);
-  border-radius: 10px;
-  padding: 10px;
-  font-size: 1rem;
-  resize: none;
-  transition: all 0.3s ease;
-}
-
-textarea:focus {
-  border-color: var(--primary-green);
-  box-shadow: 0 0 6px rgba(199, 247, 255, 0.804);
-  outline: none;
-}
-
-.water-container {
-  position: relative;
-  width: 100px;
-  height: 280px;
-  border: 3px solid #60a5fa;
-  border-radius: 30px;
-  overflow: hidden;
-  background-color: var(--light-green);
-}
-
-.water {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  background: linear-gradient(to top, #3b82f6, #e0f2fe);
-  height: 0%;
-  transition: height 0.4s ease;
-}
-
-input[type="range"] {
-  width: 220px;
-  margin-top: 15px;
-  accent-color: var(--secondary-green);
-}
-
-/* Footer */
-footer {
-  margin-top: 5rem;
-  background-color: var(--primary-green);
-  text-align: center;
-  font-weight: 600;
-  padding: 1rem;
-  color: var(--light-text);
-}
-
-/* Responsive */
 @media screen and (max-width: 1600px) {
   .row {
     padding-left: 1rem;
