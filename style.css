@@ -300,6 +300,7 @@ th {
     font-size: x-small;
   }
 
+/* ===== TESTIMONI SECTION ===== */
 .testimoni-section {
     background-color: #5a6e32;
     text-align: center;
@@ -307,26 +308,22 @@ th {
     color: white;
 }
 
-.testimoni-section .heading {
-    font-size: 34px;
-    margin-bottom: 5px;
-}
-
-.subheading {
-    opacity: 0.9;
-    margin-bottom: 50px;
-    font-size: 18px;
-}
-
-.testimoni-container {
+.testimoni-wrapper {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+}
+
+.testimoni-slider {
+    width: 700px;
+    overflow: hidden;
+    display: flex;
+    transition: transform 0.5s ease;
 }
 
 .testimoni-card {
-    max-width: 700px;
-    padding: 20px 30px;
+    min-width: 100%;
+    padding: 20px;
 }
 
 .testimoni-img {
@@ -340,23 +337,23 @@ th {
 
 .testimoni-text {
     font-style: italic;
-    font-size: 17px;
-    margin-bottom: 25px;
+    font-size: 18px;
+    margin-bottom: 20px;
 }
 
 .testimoni-nama {
     font-size: 22px;
     font-weight: 600;
-    margin-top: 10px;
 }
 
 .testimoni-role {
     opacity: 0.9;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .testimoni-stars {
-    font-size: 28px;
+    font-size: 26px;
+    margin-top: 5px;
 }
 
 .testi-btn {
@@ -365,14 +362,15 @@ th {
     width: 45px;
     height: 45px;
     border-radius: 12px;
-    font-size: 24px;
+    font-size: 22px;
     cursor: pointer;
     transition: 0.3s;
-    margin: 0 20px;
+    margin: 0 15px;
 }
 
 .testi-btn:hover {
     background-color: #c6d3a4;
 }
+
 
 }
