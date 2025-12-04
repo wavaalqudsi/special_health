@@ -99,30 +99,52 @@
     <h2 class="heading">Testimoni Pengguna</h2>
     <p class="subheading">Apa yang dikatakan pengguna tentang Special Health</p>
 
-    <div class="testimoni-container">
+    <div class="testimoni-wrapper">
 
-        <button class="testi-btn left">❮</button>
+        <button class="testi-btn left" onclick="prevTesti()">❮</button>
 
-        <div class="testimoni-card">
-            <img src="profil.jpg" alt="Foto Pengguna" class="testimoni-img">
+        <div class="testimoni-slider">
 
-            <p class="testimoni-text">
-                "Aplikasi Special Health membantu saya memantau kesehatan harian dengan sangat mudah.
-                Fitur-fiturnya lengkap dan tampilannya nyaman digunakan."
-            </p>
-
-            <h3 class="testimoni-nama">Giga Hidro Pratama Dwi Irwansyah Maulana</h3>
-            <p class="testimoni-role">Pengguna Aktif</p>
-
-            <div class="testimoni-stars">
-                ⭐ ⭐ ⭐ ⭐ ⭐
+            <!-- SLIDE 1 -->
+            <div class="testimoni-card">
+                <img src="profil1.jpg" class="testimoni-img" alt="Foto 1">
+                <p class="testimoni-text">
+                    "Aplikasi Special Health sangat membantu saya memantau tidur dan air minum harian."
+                </p>
+                <h3 class="testimoni-nama">PTIK</h3>
+                <p class="testimoni-role">Pengguna Aktif</p>
+                <div class="testimoni-stars">⭐⭐⭐⭐⭐</div>
             </div>
+
+            <!-- SLIDE 2 -->
+            <div class="testimoni-card">
+                <img src="profil2.jpg" class="testimoni-img" alt="Foto 2">
+                <p class="testimoni-text">
+                    "Fitur kalkulator BMI dan gizi sangat akurat. Cocok untuk yang sedang diet."
+                </p>
+                <h3 class="testimoni-nama">FKIP</h3>
+                <p class="testimoni-role">Mahasiswa</p>
+                <div class="testimoni-stars">⭐⭐⭐⭐⭐</div>
+            </div>
+
+            <!-- SLIDE 3 -->
+            <div class="testimoni-card">
+                <img src="profil3.jpg" class="testimoni-img" alt="Foto 3">
+                <p class="testimoni-text">
+                    "UI simpel, responsif, dan mudah dipakai. Sangat membantu menjaga kesehatan."
+                </p>
+                <h3 class="testimoni-nama">UNS</h3>
+                <p class="testimoni-role">Atlet Gym</p>
+                <div class="testimoni-stars">⭐⭐⭐⭐⭐</div>
+            </div>
+
         </div>
 
-        <button class="testi-btn right">❯</button>
+        <button class="testi-btn right" onclick="nextTesti()">❯</button>
 
     </div>
 </section>
+
 
     </footer>
 </body>
