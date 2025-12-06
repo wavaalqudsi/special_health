@@ -80,33 +80,30 @@
                 </div>
             </nav>
         </header>
-        <main>
-            <div class="container">
-                <h2 class="heading" style="font-size: 2rem">
-                    Monitoring Tidur
-                </h2>
-                <fieldset>
-                    <label for="tidur">Jam Tidur:</label>
-                    <input type="time" name="tidur" id="tidur" />
-                </fieldset>
+        <main class="container">
+            <div class="card text-center my-4 shadow">
+                <div class="card-body">
+                    <h5 class="card-title text-green fs-2 fw-semibold mb-3">
+                        Monitoring Tidur
+                    </h5>
+                    <div class="mx-auto" style="max-width: 600px">
+                        <div class="input-group mb-3 shadow-sm">
+                            <span class="input-group-text">Jam Tidur</span>
+                            <input type="text" class="form-control" />
+                        </div>
+                        <div class="input-group mb-3 shadow-sm">
+                            <span class="input-group-text">Jam Bangun</span>
+                            <input type="text" class="form-control" />
+                        </div>
+                    </div>
 
-                <fieldset>
-                    <label for="bangun">Jam Bangun:</label>
-                    <input type="time" name="bangun" id="bangun" />
-                </fieldset>
-
-                <input
-                    type="submit"
-                    value="Simpan data tidur"
-                    class="btn bg-green btn-fit" />
-                <div>
-                    <h3
-                        class="heading-black"
-                        style="margin-top: 2rem; margin-bottom: 1rem">
+                    <a href="#" class="btn btn-success">Simpan Data Tidur</a>
+                    <hr class="my-4" />
+                    <h5 class="card-title text-green fs-2 fw-semibold mb-3">
                         Riwayat Tidur
-                    </h3>
-                    <table>
-                        <thead class="bg-green">
+                    </h5>
+                    <table class="table">
+                        <thead>
                             <tr>
                                 <th>Tanggal</th>
                                 <th>Jam Tidur</th>
@@ -114,11 +111,13 @@
                                 <th>Durasi (jam)</th>
                             </tr>
                         </thead>
+                        <tbody></tbody>
                     </table>
                 </div>
             </div>
         </main>
-        <footer class="text-center fw-semibold bg-green py-3 text-white">
+        <footer
+            class="text-center fw-semibold bg-green py-3 text-white fixed-bottom">
             © 2025 Special Health. Dibuat untuk gaya hidup yang lebih sehat.
         </footer>
     </body>
