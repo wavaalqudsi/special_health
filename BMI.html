@@ -80,33 +80,79 @@
                 </div>
             </nav>
         </header>
-        <main>
-            <h2 class="heading" style="font-size: 2rem; margin-bottom: 2rem">
-                Kalkulator BMI
-            </h2>
-            <div class="row">
-                <div class="container">
-                    <h3 class="heading">Input Data Diri</h3>
-                    <label for="tinggi">Tinggi (cm)</label>
-                    <input
-                        type="number"
-                        placeholder="contoh: 169"
-                        style="margin-bottom: 0.5rem" />
-                    <label for="berat">Berat badan (kg)</label>
-                    <input
-                        type="number"
-                        placeholder="contoh: 67"
-                        style="margin-bottom: 0.5rem" />
-                    <input type="submit" value="Hitung BMI" class="bg-green" />
-                </div>
-                <div class="container">
-                    <h3 class="heading">Hasil Perhitungan</h3>
-                    <p class="heading-black">BMI: -</p>
-                    <p class="heading-black">Kategori: -</p>
-                    <div class="bmi-bar"></div>
-                    <div class="tips">
-                        <h3>Rekomendasi:</h3>
-                        <p>Masukkan data untuk melihat hasil.</p>
+        <main class="container">
+            <div class="card text-center my-4 shadow">
+                <div class="card-body">
+                    <h5 class="card-title text-green fs-2 fw-semibold mb-3">
+                        Kalkulator BMI
+                    </h5>
+
+                    <div class="row gap-3 p-3">
+                        <div class="col card shadow-sm">
+                            <div class="card-body">
+                                <h5
+                                    class="card-title fw-semibold text-green mb-4">
+                                    Input Data Diri
+                                </h5>
+                                <div class="form-floating mb-3">
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="tinggi_badan"
+                                        placeholder="Contoh: 169" />
+                                    <label for="tinggi_badan"
+                                        >Tinggi (cm)</label
+                                    >
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="berat_badan"
+                                        placeholder="Contoh: 169" />
+                                    <label for="berat_badan"
+                                        >Berat Badan (kg)</label
+                                    >
+                                </div>
+                                <button class="btn btn-success w-100 py-2">
+                                    Hitung BMI
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col card shadow-sm">
+                            <div class="card-body">
+                                <h5
+                                    class="card-title fw-semibold text-green mb-4">
+                                    Hasil Perhitungan
+                                </h5>
+                                <div class="fw-semibold">
+                                    <p>BMI: -</p>
+                                    <p>Kategori: -</p>
+                                </div>
+                                <div
+                                    class="progress mb-4"
+                                    role="progressbar"
+                                    aria-label="Indikator BMI"
+                                    aria-valuenow="25"
+                                    aria-valuemin="0"
+                                    aria-valuemax="100">
+                                    <div
+                                        class="progress-bar"
+                                        style="width: 25%"></div>
+                                </div>
+                                <div class="card shadow-sm">
+                                    <div class="card-body">
+                                        <h5 class="card-title fw-semibold fs-6">
+                                            Rekomendasi
+                                        </h5>
+                                        <hr />
+                                        <p class="card-text">
+                                            Masukkan data untuk melihat hasil.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
