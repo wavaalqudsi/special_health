@@ -7,6 +7,12 @@
         <link rel="stylesheet" href="./assets/bootstrap.min.css" />
         <link rel="stylesheet" href="style.css" />
         <script src="./assets/bootstrap.bundle.min.js"></script>
+        <style>
+            th,
+            td {
+                padding: 1rem !important;
+            }
+        </style>
     </head>
     <body>
         <header class="shadow position-relative">
@@ -80,35 +86,41 @@
                 </div>
             </nav>
         </header>
-        <main>
-            <div class="container">
-                <h2 class="heading" style="font-size: 2rem">
-                    Kalkulator Macro
-                </h2>
-                <p>
-                    Rekomendasi makro dan kalori harian berdasarkan
-                    <a href="BMI.html">BMI</a> mu
-                </p>
+        <main class="container">
+            <div class="card text-center my-4 shadow">
+                <div class="card-body">
+                    <h5 class="card-title text-green fs-2 fw-semibold mb-3">
+                        Kalkulator Macro
+                    </h5>
+                    <p class="card-text">
+                        Rekomendasi makro dan kalori harian berdasarkan BMI mu
+                    </p>
 
-                <table class="container">
-                    <tr>
-                        <th>Karbohidrat</th>
-                        <th>Protein</th>
-                        <th>Lemak</th>
-                    </tr>
-                    <tr>
-                        <td>331 g</td>
-                        <td>91 g</td>
-                        <td>80 g</td>
-                    </tr>
-                    <tr>
-                        <td>54.9%</td>
-                        <td>15.1%</td>
-                        <td>30.8%</td>
-                    </tr>
-                </table>
-
-                <h3>2411 Kalori per hari</h3>
+                    <table
+                        class="table shadow mx-auto"
+                        style="width: max-content">
+                        <thead>
+                            <tr>
+                                <th>Karbohidrat</th>
+                                <th>Protein</th>
+                                <th>Lemak</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>331 g</td>
+                                <td>91 g</td>
+                                <td>80 g</td>
+                            </tr>
+                            <tr>
+                                <td>54.9%</td>
+                                <td>15.1%</td>
+                                <td>30.8%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="h5 fw-semibold mb-4 mt-5">2411 Kalori per hari</p>
+                </div>
             </div>
         </main>
         <footer
