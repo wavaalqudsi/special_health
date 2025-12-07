@@ -1,364 +1,178 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Monitoring Kebutuhan Air</title>
-    <style>
-      :root {
-        --color-primary: #4b9b6e;
-        --color-secondary: #6bbf8a;
-        --color-background: #2e7d5c;
-        --color-third: #a8d5ba;
-        --color-light: #e0f2fe;
-      }
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Monitoring Kebutuhan Air</title>
+        <link rel="stylesheet" href="./assets/bootstrap.min.css" />
+        <link rel="stylesheet" href="style.css" />
+        <script src="./assets/bootstrap.bundle.min.js"></script>
+        <style>
+            .skyblue {
+                color: rgb(112, 184, 212);
+            }
+            .blue {
+                color: #2563eb;
+            }
 
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+            .water-tank {
+                width: 90px;
+                height: 260px;
+                border-radius: 40px;
+                background: linear-gradient(
+                    to top,
+                    #3c8dff 0%,
+                    #bfe2ff 67%,
+                    #e9f6ff 67%
+                );
+                border: 3px solid #bcdcff;
+                margin: 0 auto;
+                position: relative;
+            }
 
-      body {
-        font-family: "Poppins", Arial, sans-serif;
-        background-color: var(--color-light);
-        color: #333;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-      }
+            .slider-container {
+                margin-top: 20px;
+            }
+        </style>
+    </head>
 
-      /* 🔹 Navbar */
-      nav {
-        background-color: var(--color-primary);
-        padding: 1rem 2rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      }
-
-      nav .logo {
-        color: white;
-        font-weight: bold;
-        font-size: 1.2rem;
-        letter-spacing: 1px;
-      }
-
-      nav ul {
-        display: flex;
-        list-style: none;
-        gap: 1.2rem;
-      }
-
-      nav ul li a {
-        color: white;
-        text-decoration: none;
-        transition: 0.3s;
-        font-weight: 700;
-      }
-
-      nav ul li a:hover {
-        color: var(--color-third);
-      }
-
-      main {
-        display: flex;
-        flex: 1;
-        padding: 20px;
-        gap: 20px;
-      }
-
-      aside.left,
-      aside.right {
-        flex: 1;
-        background-color: white;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        border-radius: 12px;
-        padding: 20px;
-        color: skyblue;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      }
-
-      section.center {
-        flex: 2.5;
-        background-color: #fff;
-        border-radius: 12px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        padding: 25px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      }
-
-      section.center h2 {
-        margin-bottom: 10px;
-        color: var(--color-background);
-      }
-
-      textarea {
-        width: 90%;
-        height: 150px;
-        margin-top: 15px;
-        border: 2px solid var(--color-secondary);
-        border-radius: 8px;
-        padding: 10px;
-        font-size: 1rem;
-        resize: none;
-        transition: all 0.3s ease;
-      }
-
-      textarea:focus {
-        border-color: var(--color-primary);
-        box-shadow: 0 0 6px rgba(199, 247, 255, 0.804);
-        outline: none;
-      }
-
-      .water-container {
-        position: relative;
-        width: 90px;
-        height: 280px;
-        border: 3px solid #60a5fa;
-        border-radius: 30px;
-        overflow: hidden;
-        background-color: var(--color-light);
-      }
-
-      .water {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        background: linear-gradient(to top, #3b82f6, #e0f2fe);
-        height: 0%;
-        transition: height 0.4s ease;
-      }
-
-      input[type="range"] {
-        width: 220px;
-        margin-top: 15px;
-        accent-color: var(--color-light);
-      }
-
-      /* 🔹 Artikel Section */
-      #artikel {
-        padding: 40px 20px;
-        background-color: #f8fafc;
-      }
-
-      #artikel .container {
-        max-width: 1600px;
-        margin: 0 auto;
-        text-align: center;
-      }
-
-      #artikel h2 {
-        color: var(--color-background);
-        margin-bottom: 20px;
-      }
-
-      .article-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 40px;
-      }
-
-      .article-card {
-        background-color: white;
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease;
-      }
-
-      .article-card:hover {
-        transform: translateY(-6px);
-      }
-
-      .article-card img {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-      }
-
-      .article-content {
-        padding: 15px;
-      }
-
-      .article-content h3 {
-        color: var(--color-primary);
-        margin-bottom: 8px;
-      }
-
-      .article-content a {
-        text-decoration: none;
-        color: var(--color-background);
-        font-weight: bold;
-        transition: color 0.3s;
-      }
-
-      .article-content a:hover {
-        color: var(--color-primary);
-      }
-
-      /* 🔹 Footer */
-      footer {
-        background-color: var(--color-background);
-        color: white;
-        text-align: center;
-        padding: 15px;
-        font-size: 0.9rem;
-        box-shadow: 0 -3px 8px rgba(0, 0, 0, 0.1);
-      }
-
-      @media (max-width: 768px) {
-        main {
-          flex-direction: column;
-        }
-      }
-    </style>
-  </head>
-
-  <body>
-    <!-- 🔹 Navbar -->
-    <nav>
-      <div class="logo">Special Health</div>
-      <ul>
-        <li><a href="index.html">Beranda</a></li>
-        <li><a href="monitoring_tidur.html">Monitoring Tidur</a></li>
-        <li><a href="macro-kalkulator.html">Kalkulator Gizi</a></li>
-        <li><a href="BMI.html">Kalkulator BMI</a></li>
-        <li>
-          <a href="monitoring_minum.html" style="color: var(--color-third)"
-            >Monitoring Air</a
-          >
-        </li>
-      </ul>
-    </nav>
-
-    <main>
-      <!-- Kiri -->
-      <aside class="left">
-        <h2>Total Kebutuhan</h2>
-        <p style="font-size: 28px; color: #2563eb; font-weight: bold">
-          2000 ml
-        </p>
-        <p>per hari</p>
-      </aside>
-
-      <!-- Tengah -->
-      <section class="center">
-        <h2>Aktivitas Harian</h2>
-        <p>Catat aktivitasmu di sini!</p>
-        <textarea placeholder="Tuliskan aktivitasmu hari ini..."></textarea>
-      </section>
-
-      <!-- Kanan -->
-      <aside class="right">
-        <h2>Kebutuhan Air 💧</h2>
-        <div class="water-container">
-          <div class="water" id="water"></div>
-        </div>
-        <p id="persen">0%</p>
-        <input
-          type="range"
-          min="0"
-          max="2000"
-          step="50"
-          value="0"
-          id="slider"
-        />
-      </aside>
-    </main>
-
-    <!--  Artikel Kesehatan -->
-    <section id="artikel" class="articles">
-      <div class="container">
-        <h2>Artikel Kesehatan Terbaru</h2>
-        <div class="article-grid">
-          <article class="article-card">
-            <img
-              src="https://rsum.bandaacehkota.go.id/wp-content/uploads/2025/04/jalan_kaki.webp"
-              alt="Gambar artikel 1"
-            />
-            <div class="article-content">
-              <h3>5 Manfaat Jalan Kaki Setiap Pagi untuk Jantung</h3>
-              <p>
-                Jalan kaki adalah olahraga sederhana namun memiliki dampak luar
-                biasa bagi kesehatan kardiovaskular...
-              </p>
-              <a href="#">Baca Selengkapnya →</a>
+    <body>
+        <header class="shadow position-relative">
+            <nav class="navbar navbar-expand-lg container">
+                <div class="container-fluid">
+                    <a
+                        class="navbar-brand fw-semibold fs-4 text-green"
+                        href="index.html"
+                        >&lt; Kembali</a
+                    >
+                    <button
+                        class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarNavDropdown"
+                        aria-controls="navbarNavDropdown"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div
+                        class="collapse navbar-collapse justify-content-end"
+                        id="navbarNavDropdown">
+                        <ul class="navbar-nav">
+                            <li class="nav-item dropdown">
+                                <a
+                                    class="nav-link dropdown-toggle"
+                                    href="#"
+                                    role="button"
+                                    data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    Fitur
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a
+                                            class="dropdown-item"
+                                            href="monitoring_tidur.html"
+                                            >Monitoring Tidur</a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a
+                                            class="dropdown-item"
+                                            href="macro-kalkulator.html"
+                                            >Kalkulator Gizi</a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="BMI.html"
+                                            >Kalkulator BMI</a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a
+                                            class="dropdown-item"
+                                            href="monitoring_minum.html"
+                                            >Monitoring Air</a
+                                        >
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#artikel">Artikel</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#tentang">Tentang</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <main class="container">
+            <div class="row g-3 mx-auto py-4">
+                <div class="col-lg-3 col-12">
+                    <div
+                        class="card shadow h-100 justify-content-center align-items-center">
+                        <p class="fw-semibold fs-5 m-0 skyblue">
+                            Total Kebutuhan
+                        </p>
+                        <p class="fw-semibold fs-5 m-0 blue">2000 ml</p>
+                        <p class="fw-semibold fs-5 m-0 skyblue">per hari</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-12">
+                    <div class="card shadow-sm text-center h-100">
+                        <div class="card-body">
+                            <h5
+                                class="card-title text-green fs-2 fw-semibold mb-3">
+                                Aktivitas Harian
+                            </h5>
+                            <p class="card-text">Catat aktivitasmu di sini!</p>
+                            <textarea
+                                class="w-100 p-2 mb-3"
+                                placeholder="tuliskan aktivitasmu hari ini..."></textarea>
+                            <button class="btn btn-success w-100">
+                                Tambah
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-12">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h5
+                                class="card-title fw-semibold mb-3 text-center skyblue">
+                                Kebutuhan Air 💧
+                            </h5>
+                            <div class="water-tank"></div>
+                            <p class="text-center py-2 m-0 blue">67%</p>
+                            <input
+                                type="range"
+                                class="form-range"
+                                value="67"
+                                max="100"
+                                min="1" />
+                        </div>
+                    </div>
+                </div>
             </div>
-          </article>
-          <article class="article-card">
-            <img
-              src="https://image.idntimes.com/post/20220113/10-ide-menu-sarapan-enak-tanpa-nasi-sarapan-yang-tidak-membosankan-9cde86371d7fc78c91ae80a6ffab250e-c9f29f91a352064bef58fb8fb9b5517b.jpg"
-              alt="Gambar artikel 2"
-            />
-            <div class="article-content">
-              <h3>Pentingnya Sarapan Sehat Sebelum Aktivitas</h3>
-              <p>
-                Jangan lewatkan sarapan! Makanan di pagi hari memberikan energi
-                yang Anda butuhkan untuk...
-              </p>
-              <a href="#">Baca Selengkapnya →</a>
-            </div>
-          </article>
-          <article class="article-card">
-            <img
-              src="https://i0.wp.com/holisticare.co.id/wp-content/uploads/2017/09/Manajemen-Stress-Orang-Sukses-1.jpg?fit=800%2C350&ssl=1"
-              alt="Gambar artikel 3"
-            />
-            <div class="article-content">
-              <h3>Cara Mengelola Stres dengan Teknik Pernapasan</h3>
-              <p>
-                Stres dapat memengaruhi kesehatan fisik dan mental. Pelajari
-                teknik pernapasan sederhana untuk...
-              </p>
-              <a href="#">Baca Selengkapnya →</a>
-            </div>
-          </article>
-          <article class="article-card">
-            <img
-              src="https://pdaminfo.pdampintar.id/wp-content/uploads/2022/08/Air-Minum-Dalam-Kemasan.jpg"
-              alt="Gambar artikel 3"
-            />
-            <div class="article-content">
-              <h3>Minum Air yang Cukup Setiap Hari</h3>
-              <p>
-                Minum air yang cukup sangat penting untuk menjaga kesehatan
-                tubuh. Pastikan Anda memenuhi kebutuhan cairan harian Anda!
-              </p>
-              <a href="#">Baca Selengkapnya →</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
+        </main>
+        <footer
+            class="text-center fw-semibold bg-green py-3 text-white fixed-bottom">
+            © 2025 Special Health. Dibuat untuk gaya hidup yang lebih sehat.
+        </footer>
+        <script>
+            // Slider interaktif air
+            const slider = document.getElementById("slider");
+            const water = document.getElementById("water");
+            const persen = document.getElementById("persen");
 
-    <footer>
-      <div class="container">
-        <p>
-          &copy; 2025 Special Helath. Dibuat untuk gaya hidup yang lebih sehat.
-        </p>
-      </div>
-    </footer>
-
-    <script>
-      // Slider interaktif air
-      const slider = document.getElementById("slider");
-      const water = document.getElementById("water");
-      const persen = document.getElementById("persen");
-
-      slider.addEventListener("input", () => {
-        const value = slider.value;
-        const percent = Math.min((value / 2000) * 100, 100);
-        water.style.height = percent + "%";
-        persen.textContent = Math.round(percent) + "%";
-      });
-    </script>
-  </body>
+            slider.addEventListener("input", () => {
+                const value = slider.value;
+                const percent = Math.min((value / 2000) * 100, 100);
+                water.style.height = percent + "%";
+                persen.textContent = Math.round(percent) + "%";
+            });
+        </script>
+    </body>
 </html>

@@ -1,118 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kalkulator BMI</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<style>
-    main {
-        padding-top: 1rem;
-    }
-
-    main > .row {
-        margin: auto;
-        max-width: 1200px;
-        width: 100%;
-    }
-
-    .container {
-        flex-grow: 1;
-        width: auto;
-    }
-
-    .bmi-bar {
-        width: 100%;
-        height: 25px;
-        background: #e5e7eb;
-        border-radius: 12px;
-        overflow: hidden;
-        margin: 20px 0;
-    }
-
-    .tips {
-        margin-top: 15px;
-        font-size: 1rem;
-        padding: 1rem;
-        border: 1px dashed var(--primary-green);
-        border-radius: 8px;
-    }
-
-    .heading-black {
-        font-weight: 600;
-        font-size: 1.5rem;
-    }
-
-</style>
-<body>
-    <header class="green">
-        <nav>
-            <h1>
-                <a href="index.html">Special Health</a>
-            </h1>
-            <a href="monitoring_tidur.html">Monitoring Tidur</a>
-            <a href="macro-kalkulator.html">Kalkulator Gizi</a>
-            <a href="BMI.html">BMI</a>
-            <a href="monitoring_minum.html">Monitoring Air Minum</a>
-        </nav>
-    </header>
-    <main>
-        <h2 class="heading" style="font-size: 2rem; margin-bottom: 2rem;">Kalkulator BMI</h2>
-        <div class="row">
-            <div class="container">
-                <h3 class="heading">Input Data Diri</h3>
-                <label for="tinggi">Tinggi (cm)</label>
-                <input type="number" placeholder="contoh: 169" style="margin-bottom: 0.5rem;">
-                <label for="berat">Berat badan (kg)</label>
-                <input type="number" placeholder="contoh: 67" style="margin-bottom: 0.5rem;">
-                <input type="submit" value="Hitung BMI" class="bg-green">
-            </div>
-            <div class="container">
-                <h3 class="heading">Hasil Perhitungan</h3>
-                <p class="heading-black">BMI: -</p>
-                <p class="heading-black">Kategori: -</p>
-                <div class="bmi-bar"></div>
-                <div class="tips">
-                    <h3>Rekomendasi:</h3>
-                    <p>Masukkan data untuk melihat hasil.</p>
-                </div>
-            </div>
-        </div>
-        <div id="artikel">
-            <h2 class="heading">Artikel Kesehatan Terbaru</h2>
-            <div class="row">
-                <div class="card">
-                    <img src="https://live.staticflickr.com/65535/52005071261_47bce58a6a_z.jpg" alt="Gambar artikel 1">
-                    <div class="card-item">
-                        <h3>Manfaat Berlari</h3>
-                        <p>Berlari adalah olahraga yang efektif untuk meningkatkan kesehatan jantung dan membakar kalori...</p>
-                        <a href="">Baca selengkapnya →</a>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Kalkulator BMI</title>
+        <link rel="stylesheet" href="./assets/bootstrap.min.css" />
+        <link rel="stylesheet" href="style.css" />
+        <script src="./assets/bootstrap.bundle.min.js"></script>
+    </head>
+    <body>
+        <header class="shadow position-relative">
+            <nav class="navbar navbar-expand-lg container">
+                <div class="container-fluid">
+                    <a
+                        class="navbar-brand fw-semibold fs-4 text-green"
+                        href="index.html"
+                        >&lt; Kembali</a
+                    >
+                    <button
+                        class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarNavDropdown"
+                        aria-controls="navbarNavDropdown"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div
+                        class="collapse navbar-collapse justify-content-end"
+                        id="navbarNavDropdown">
+                        <ul class="navbar-nav">
+                            <li class="nav-item dropdown">
+                                <a
+                                    class="nav-link dropdown-toggle"
+                                    href="#"
+                                    role="button"
+                                    data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    Fitur
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a
+                                            class="dropdown-item"
+                                            href="monitoring_tidur.html"
+                                            >Monitoring Tidur</a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a
+                                            class="dropdown-item"
+                                            href="macro-kalkulator.html"
+                                            >Kalkulator Gizi</a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="BMI.html"
+                                            >Kalkulator BMI</a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a
+                                            class="dropdown-item"
+                                            href="monitoring_minum.html"
+                                            >Monitoring Air</a
+                                        >
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#artikel">Artikel</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#tentang">Tentang</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-                <div class="card">
-                    <img src="https://img-cdn.medkomtek.com/EpZ2jZUZALoIER9kQoX_H_rJn9Y=/510x395/smart/filters:quality(100):format(webp)/article/9VVFi0_Ghv88zWl_ZEAJ9/original/1670242009-Fakta%20Seputar%20Virus%20Zombie%20yang%20Ditemukan%20di%20Rusia.jpg" alt="Gambar artikel 2">
-                    <div class="card-item">
-                        <h3>Manfaat Berlari</h3>
-                        <p> Obesitas, diabetes, dan penyakit jantung adalah beberapa penyakit yang dapat mengancam kesehatan Anda. Penting untuk menjaga pola makan dan gaya hidup sehat. </p>
-                        <a href="">Baca selengkapnya →</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://rsud.acehjayakab.go.id/media/2021.07/Pentingnya_Menjaga_Gaya_Hidup_Sehat.png" alt="Gambar artikel 3">
-                    <div class="card-item">
-                        <h3>Manfaat Berlari</h3>
-                        <p> Pola hidup sehat meliputi kebiasaan makan yang baik, olahraga teratur, dan cukup tidur. Dengan menerapkan pola hidup sehat, Anda dapat meningkatkan kualitas hidup dan mencegah berbagai penyakit. </p>
-                        <a href="">Baca selengkapnya →</a>
+            </nav>
+        </header>
+        <main class="container">
+            <div class="card text-center my-4 shadow">
+                <div class="card-body">
+                    <h5 class="card-title text-green fs-2 fw-semibold mb-3">
+                        Kalkulator BMI
+                    </h5>
+
+                    <div class="row g-3 p-3">
+                        <div class="col-12 col-lg-6">
+                            <div class="card shadow-sm h-100">
+                                <div class="card-body">
+                                    <h5
+                                        class="card-title fw-semibold text-green mb-4">
+                                        Input Data Diri
+                                    </h5>
+                                    <div class="form-floating mb-3">
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            id="tinggi_badan"
+                                            placeholder="Contoh: 169" />
+                                        <label for="tinggi_badan"
+                                            >Tinggi (cm)</label
+                                        >
+                                    </div>
+                                    <div class="form-floating mb-3">
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            id="berat_badan"
+                                            placeholder="Contoh: 169" />
+                                        <label for="berat_badan"
+                                            >Berat Badan (kg)</label
+                                        >
+                                    </div>
+                                    <button class="btn btn-success w-100 py-2">
+                                        Hitung BMI
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <div class="card shadow-sm h-100">
+                                <div class="card-body">
+                                    <h5
+                                        class="card-title fw-semibold text-green mb-4">
+                                        Hasil Perhitungan
+                                    </h5>
+                                    <div class="fw-semibold">
+                                        <p>BMI: -</p>
+                                        <p>Kategori: -</p>
+                                    </div>
+                                    <div
+                                        class="progress mb-4"
+                                        role="progressbar"
+                                        aria-label="Indikator BMI"
+                                        aria-valuenow="25"
+                                        aria-valuemin="0"
+                                        aria-valuemax="100">
+                                        <div
+                                            class="progress-bar"
+                                            style="width: 25%"></div>
+                                    </div>
+                                    <div class="card shadow-sm">
+                                        <div class="card-body">
+                                            <h5
+                                                class="card-title fw-semibold fs-6">
+                                                Rekomendasi
+                                            </h5>
+                                            <hr />
+                                            <p class="card-text">
+                                                Masukkan data untuk melihat
+                                                hasil.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </main>
-    <footer>
-        <p>
-            &copy; 2025 Special Health. Dibuat untuk gaya hidup yang lebih sehat.
-        </p>
-    </footer>
-</body>
+        </main>
+        <footer
+            class="text-center fw-semibold bg-green py-3 text-white fixed-bottom">
+            © 2025 Special Health. Dibuat untuk gaya hidup yang lebih sehat.
+        </footer>
+    </body>
 </html>

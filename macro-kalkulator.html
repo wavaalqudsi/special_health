@@ -1,107 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kalkulator Macro</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        main {
-            padding-top: 1rem;
-        }
-
-        table {
-            text-align: left;
-            width: max-content;
-            align-self: center;
-        }
-
-        th, td {
-            padding: 0.5rem;
-        }
-        
-        .container {
-            text-align: center;
-        }
-
-        table.container {
-            width: fit-content;
-            margin-bottom: 2rem;
-        }
-
-    </style>
-</head>
-<body>
-    <header class="green">
-        <nav>
-            <h1>
-                <a href="index.html">Special Health</a>
-            </h1>
-            <a href="monitoring_tidur.html">Monitoring Tidur</a>
-            <a href="macro-kalkulator.html">Kalkulator Gizi</a>
-            <a href="BMI.html">BMI</a>
-            <a href="monitoring_minum.html">Monitoring Air Minum</a>
-        </nav>
-    </header>
-    <main>
-        <div class="container">
-            <h2 class="heading" style="font-size: 2rem;">Kalkulator Macro</h2>
-            <p>Rekomendasi makro dan kalori harian berdasarkan <a href="BMI.html">BMI</a> mu</p>
-
-            <table class="container">
-                <tr>
-                    <th>Karbohidrat</th>
-                    <th>Protein</th>
-                    <th>Lemak</th>
-                </tr>
-                <tr>
-                    <td>331 g</td>
-                    <td>91 g</td>
-                    <td>80 g</td>
-                </tr>
-                <tr>
-                    <td>54.9%</td>
-                    <td>15.1%</td>
-                    <td>30.8%</td>
-                </tr>
-            </table>
-
-            <h3>2411 Kalori per hari</h3>
-        </div>
-        <div id="artikel">
-            <h2 class="heading">Artikel Kesehatan Terbaru</h2>
-            <div class="row">
-                <div class="card">
-                    <img src="https://live.staticflickr.com/65535/52005071261_47bce58a6a_z.jpg" alt="Gambar artikel 1">
-                    <div class="card-item">
-                        <h3>Manfaat Berlari</h3>
-                        <p>Berlari adalah olahraga yang efektif untuk meningkatkan kesehatan jantung dan membakar kalori...</p>
-                        <a href="">Baca selengkapnya →</a>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Kalkulator Macro</title>
+        <link rel="stylesheet" href="./assets/bootstrap.min.css" />
+        <link rel="stylesheet" href="style.css" />
+        <script src="./assets/bootstrap.bundle.min.js"></script>
+        <style>
+            th,
+            td {
+                padding: 1rem !important;
+            }
+        </style>
+    </head>
+    <body>
+        <header class="shadow position-relative">
+            <nav class="navbar navbar-expand-lg container">
+                <div class="container-fluid">
+                    <a
+                        class="navbar-brand fw-semibold fs-4 text-green"
+                        href="index.html"
+                        >&lt; Kembali</a
+                    >
+                    <button
+                        class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarNavDropdown"
+                        aria-controls="navbarNavDropdown"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div
+                        class="collapse navbar-collapse justify-content-end"
+                        id="navbarNavDropdown">
+                        <ul class="navbar-nav">
+                            <li class="nav-item dropdown">
+                                <a
+                                    class="nav-link dropdown-toggle"
+                                    href="#"
+                                    role="button"
+                                    data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    Fitur
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a
+                                            class="dropdown-item"
+                                            href="monitoring_tidur.html"
+                                            >Monitoring Tidur</a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a
+                                            class="dropdown-item"
+                                            href="macro-kalkulator.html"
+                                            >Kalkulator Gizi</a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="BMI.html"
+                                            >Kalkulator BMI</a
+                                        >
+                                    </li>
+                                    <li>
+                                        <a
+                                            class="dropdown-item"
+                                            href="monitoring_minum.html"
+                                            >Monitoring Air</a
+                                        >
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#artikel">Artikel</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#tentang">Tentang</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-                <div class="card">
-                    <img src="https://img-cdn.medkomtek.com/EpZ2jZUZALoIER9kQoX_H_rJn9Y=/510x395/smart/filters:quality(100):format(webp)/article/9VVFi0_Ghv88zWl_ZEAJ9/original/1670242009-Fakta%20Seputar%20Virus%20Zombie%20yang%20Ditemukan%20di%20Rusia.jpg" alt="Gambar artikel 2">
-                    <div class="card-item">
-                        <h3>Manfaat Berlari</h3>
-                        <p> Obesitas, diabetes, dan penyakit jantung adalah beberapa penyakit yang dapat mengancam kesehatan Anda. Penting untuk menjaga pola makan dan gaya hidup sehat. </p>
-                        <a href="">Baca selengkapnya →</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://rsud.acehjayakab.go.id/media/2021.07/Pentingnya_Menjaga_Gaya_Hidup_Sehat.png" alt="Gambar artikel 3">
-                    <div class="card-item">
-                        <h3>Manfaat Berlari</h3>
-                        <p> Pola hidup sehat meliputi kebiasaan makan yang baik, olahraga teratur, dan cukup tidur. Dengan menerapkan pola hidup sehat, Anda dapat meningkatkan kualitas hidup dan mencegah berbagai penyakit. </p>
-                        <a href="">Baca selengkapnya →</a>
-                    </div>
+            </nav>
+        </header>
+        <main class="container">
+            <div class="card text-center my-4 shadow">
+                <div class="card-body">
+                    <h5 class="card-title text-green fs-2 fw-semibold mb-3">
+                        Kalkulator Macro
+                    </h5>
+                    <p class="card-text">
+                        Rekomendasi makro dan kalori harian berdasarkan BMI mu
+                    </p>
+
+                    <table
+                        class="table shadow mx-auto"
+                        style="width: max-content">
+                        <thead>
+                            <tr>
+                                <th>Karbohidrat</th>
+                                <th>Protein</th>
+                                <th>Lemak</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>331 g</td>
+                                <td>91 g</td>
+                                <td>80 g</td>
+                            </tr>
+                            <tr>
+                                <td>54.9%</td>
+                                <td>15.1%</td>
+                                <td>30.8%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="h5 fw-semibold mb-4 mt-5">2411 Kalori per hari</p>
                 </div>
             </div>
-        </div>
-    </main>
-    <footer>
-        <p>
-            &copy; 2025 Special Health. Dibuat untuk gaya hidup yang lebih sehat.
-        </p>
-    </footer>
-</body>
+        </main>
+        <footer
+            class="text-center fw-semibold bg-green py-3 text-white fixed-bottom">
+            © 2025 Special Health. Dibuat untuk gaya hidup yang lebih sehat.
+        </footer>
+    </body>
 </html>
