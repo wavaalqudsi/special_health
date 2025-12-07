@@ -30,6 +30,7 @@
       rgba(60, 179, 113, 0.7)),
     url("img/run.jpg") no-repeat center center/cover;
   padding: 6rem 0;
+  transition: background-image 1s ease-in-out;
 }
 
 @media screen and (max-width: 800px) {
