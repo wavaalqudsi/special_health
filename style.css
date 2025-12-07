@@ -19,7 +19,7 @@
   background-color: #2d8b57 !important;
 }
 
-.card img {
+.aspect-video {
   aspect-ratio: 16 / 9;
   height: auto;
   width: 100%;
