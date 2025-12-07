@@ -7,6 +7,33 @@
         <link rel="stylesheet" href="./assets/bootstrap.min.css" />
         <link rel="stylesheet" href="style.css" />
         <script src="./assets/bootstrap.bundle.min.js"></script>
+        <style>
+            .skyblue {
+                color: rgb(112, 184, 212);
+            }
+            .blue {
+                color: #2563eb;
+            }
+
+            .water-tank {
+                width: 90px;
+                height: 260px;
+                border-radius: 40px;
+                background: linear-gradient(
+                    to top,
+                    #3c8dff 0%,
+                    #bfe2ff 67%,
+                    #e9f6ff 67%
+                );
+                border: 3px solid #bcdcff;
+                margin: 0 auto;
+                position: relative;
+            }
+
+            .slider-container {
+                margin-top: 20px;
+            }
+        </style>
     </head>
 
     <body>
@@ -81,39 +108,54 @@
                 </div>
             </nav>
         </header>
-        <main>
-            <!-- Kiri -->
-            <aside class="left">
-                <h2>Total Kebutuhan</h2>
-                <p style="font-size: 28px; color: #2563eb; font-weight: bold">
-                    2000 ml
-                </p>
-                <p>per hari</p>
-            </aside>
-
-            <!-- Tengah -->
-            <section class="center">
-                <h2>Aktivitas Harian</h2>
-                <p>Catat aktivitasmu di sini!</p>
-                <textarea
-                    placeholder="Tuliskan aktivitasmu hari ini..."></textarea>
-            </section>
-
-            <!-- Kanan -->
-            <aside class="right">
-                <h2>Kebutuhan Air 💧</h2>
-                <div class="water-container">
-                    <div class="water" id="water"></div>
+        <main class="container">
+            <div class="row g-3 mx-auto py-4">
+                <div class="col-lg-3 col-12">
+                    <div
+                        class="card shadow h-100 justify-content-center align-items-center">
+                        <p class="fw-semibold fs-5 m-0 skyblue">
+                            Total Kebutuhan
+                        </p>
+                        <p class="fw-semibold fs-5 m-0 blue">2000 ml</p>
+                        <p class="fw-semibold fs-5 m-0 skyblue">per hari</p>
+                    </div>
                 </div>
-                <p id="persen">0%</p>
-                <input
-                    type="range"
-                    min="0"
-                    max="2000"
-                    step="50"
-                    value="0"
-                    id="slider" />
-            </aside>
+                <div class="col-lg-6 col-12">
+                    <div class="card shadow-sm text-center h-100">
+                        <div class="card-body">
+                            <h5
+                                class="card-title text-green fs-2 fw-semibold mb-3">
+                                Aktivitas Harian
+                            </h5>
+                            <p class="card-text">Catat aktivitasmu di sini!</p>
+                            <textarea
+                                class="w-100 p-2 mb-3"
+                                placeholder="tuliskan aktivitasmu hari ini..."></textarea>
+                            <button class="btn btn-success w-100">
+                                Tambah
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-12">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h5
+                                class="card-title fw-semibold mb-3 text-center skyblue">
+                                Kebutuhan Air 💧
+                            </h5>
+                            <div class="water-tank"></div>
+                            <p class="text-center py-2 m-0 blue">67%</p>
+                            <input
+                                type="range"
+                                class="form-range"
+                                value="67"
+                                max="100"
+                                min="1" />
+                        </div>
+                    </div>
+                </div>
+            </div>
         </main>
         <footer
             class="text-center fw-semibold bg-green py-3 text-white fixed-bottom">
