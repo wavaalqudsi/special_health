@@ -39,13 +39,6 @@
   padding: 6rem 0;
   transition: background-image 1s ease-in-out;
 }
-.hero-img {
-    max-width: 100%;
-    width: 700px;   
-    border-radius: 15px;
-    margin: 30px auto;
-    display: block;
-}
 @media screen and (max-width: 800px) {
   html {
     font-size: 14px;
