@@ -32,7 +32,15 @@
   padding: 6rem 0;
   transition: background-image 1s ease-in-out;
 }
+.carousel-item img {
+    height: 400px;
+    object-fit: cover;
+}
 
+.carousel {
+    border-radius: 12px;
+    overflow: hidden;
+}
 @media screen and (max-width: 800px) {
   html {
     font-size: 14px;
