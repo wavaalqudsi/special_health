@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
@@ -281,7 +281,7 @@
                             <div class="card">
                                 <div class="card-body text-center">
                                     <img
-                                        src="./img/ve.webp"
+                                        src="./img/profil1.jpeg"
                                         height="128"
                                         class="rounded-circle mb-3"
                                         alt="Client Avatar" />
@@ -309,7 +309,7 @@
                                 <div class="card-body text-center">
                                     <img
                                         height="128"
-                                        src="./img/ve.webp"
+                                        src="./img/profil2.jpeg"
                                         class="rounded-circle mb-3"
                                         alt="Client Avatar" />
                                     <h5 class="card-title">Jane Smith</h5>
@@ -335,7 +335,7 @@
                                 <div class="card-body text-center">
                                     <img
                                         height="128"
-                                        src="./img/ve.webp"
+                                        src="./img/profil3.jpeg"
                                         class="rounded-circle mb-3"
                                         alt="Client Avatar" />
                                     <h5 class="card-title">Mike Johnson</h5>
@@ -364,24 +364,4 @@
         <footer class="text-center fw-semibold bg-green py-3 text-white">
             © 2025 Special Health. Dibuat untuk gaya hidup yang lebih sehat.
         </footer>
-        <script>
-        const hero = document.querySelector(".hero");
-        const heroImages = [
-            "run.jpg",
-            "img/run2.jpg",
-            "img/run3.jpg"
-        ];
-        
-        let heroIndex = 0;
-        
-        function changeHeroBg() {
-            hero.style.backgroundImage =
-            `linear-gradient(rgba(45,139,87,0.7), rgba(60,179,113,0.7)),
-            url('${heroImages[heroIndex]}')`;
-        heroIndex = (heroIndex + 1) % heroImages.length;
-    }
-    changeHeroBg();
-    setInterval(changeHeroBg, 5000);
-</script>
-    </body>
 </html>
